@@ -1,3 +1,7 @@
-Friday Theme is a theme for Jekyll using Bootstrap 4.4 designed to build a great personal web site with a portfolio, blog and project documentation. It is compatible with GitHub Pages. It supports all the Bootstrap components, it has blogs with tags, it has syntax highlighting and it has SVG icons. It is customisable with SCSS by simply changing the default boostrap variables.
+My name is Anant. I am a Computer scientist and a Biomedical engineer. I build new medical devices that leverage my experience in computer vision and machine learning alongwith years of working knowledge in the operating rooms at various hospitals to develop solutions for the next generation of surgical and endoscopy suites. I am currently working with Digital Endoscopy (a R&D center of Pentax Medical) as a scientist and senior systems engineer to bring the next generation of endoscopy products to market.
 
-It is maintained by Simon Freytag on [GitHub](https://github.com/sfreytag/friday-theme) and it was built originally for [Simon's own portfolio](http://www.freytag.org.uk).
+I am also an avid (private) photographer. I love singing, mostly hindi old melodies from 60s-80s and bhajans.
+
+In my free time I looking to improve my skills in application of computer vision to raspberry pi. I am interested in collaborating with people on connected devices in healthcare.
+
+You can connect with me on [LinkedIn](https://www.linkedin.com/in/anantvemuri/) and follow me on [Twitter](https://twitter.com/ekmungi).
