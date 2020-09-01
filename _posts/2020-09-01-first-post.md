@@ -1,6 +1,14 @@
-# My first post
+
+---
+title: Creating the website
+tags:
+	- general
+
+---
 
 This is my first post for this blog. I am learning to setup github pages, so my first few posts will be to help anyone starting to use github pages to be able to perhaps emulate the steps and be able to do the same. So lets get started.
+
+<!--more-->
 
 1. My first step was to create a github repository. If its an independent website compiling your profile and perhaps blog posts etc, I would recommend creating a repository name such "[ekmungi.github.io](ekmungi.github.io)".
 ![Click on the new button to create a new repository](https://lh3.googleusercontent.com/tthWq5JJEy28A5WIf5grHA8snCNV7eIZ8cYXa9FMCVgjjMVLI6D5WdXt-h-JSuZL_ylebySNm0Q9rkRwAUcIlN6Rvl-cuygrIg-6b7HvxPAY9izPkWtu9dFNArkeI2ElU04Zn9Ifj7DYf6D19nSPUSscF9XHZaJ0lWQbeGgJpo3ZoyK0hT71TZzJjl3gvfYncFtIgTzIuqvokkyUO717O41wnwyN35bLNzzUalRjCQa2ffEAfti6pwoQib4YOV29jnz5r-fb0q2yLxlzFVPEZ0JvzXYnL47m0X9EjBHXRNpE819iV9SnC33Tu3uEz3KbbRx-XRjQqiQXa-qxiK--n4oGjBnkj5O-q6kNEx9nSqCboFAzk4ZldR971KP8LeIIIB2INODFw12W1ACmGttyHg1TjZXOfetcqzh-2Jkx234nyadKu72LET5NdBr6TlB4h5-qvhF-XPIpZ5GiSxE0WPEuNBhdJn0GLQOeFsAea6dI5cuey_v5yX81hnduem29XriHfBXn_xBMGObyx_wBLJVAm6Kuu3rjyMxFqdPW-DDY5eVvqPAWMAa-7LujWN9Ew65qiTsKgUKpoHeJbdah112SlSOHk3Ffb8BciMWNNwGblzu1RZFE3GAFa15uXZXxo80Tjb4UxHgB2O7ZyxcreIs_QGwBTpAETcjvTbONnRMGJyliFPwLjFH76Fwu=w1435-h204-no?authuser=1)
