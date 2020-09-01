@@ -1,9 +1,7 @@
-
 ---
 title: Creating the website
 tags:
 - general
-
 ---
 
 This is my first post for this blog. I am learning to setup github pages, so my first few posts will be to help anyone starting to use github pages to be able to perhaps emulate the steps and be able to do the same. So lets get started.
