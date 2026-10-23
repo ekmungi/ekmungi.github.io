@@ -2,6 +2,12 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.2.1] - 2026-10-23
+
+### Fixed
+
+- The publishing build installed nothing, because `package-lock.json` lacked two entries (`@emnapi/core`, `@emnapi/runtime`) that newer npm versions require. The lockfile now has them, and a unit test checks that the lockfile resolves every dependency it declares.
+
 ## [0.2.0] - 2026-10-23
 
 The site can go live before the portrait photo, the profile story and the first blog post exist.
