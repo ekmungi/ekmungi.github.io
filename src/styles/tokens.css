@@ -1,0 +1,19 @@
+/* Design tokens: the Stone palette. Every colour on the site comes from these custom properties. */
+:root {
+  /* Page background: a dull, light grey. */
+  --bg: #efefed;
+  /* Section frames and cards sit one step lighter than the page. */
+  --frame: #f8f8f7;
+  /* The tag frame on the blog sits one step darker than the page. */
+  --frame-2: #e2e2de;
+  /* Hairlines and frame borders. */
+  --rule: #dbdbd7;
+  /* Body text. */
+  --ink: #3a3b3d;
+  /* Headings and the strongest text. */
+  --ink-strong: #2b2c2e;
+  /* Secondary text: dates, hints, labels. Darkened from the prototype's #76777a, which failed contrast on --frame-2. */
+  --muted: #626366;
+  /* The single accent: links and the hovered or current item. */
+  --accent: #4a5f86;
+}

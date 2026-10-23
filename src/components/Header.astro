@@ -1,0 +1,167 @@
+---
+// Top bar: the name (links home) and plain nav links, each with a one-line hint shown on hover and keyboard focus. The Blog link appears once a post is published.
+import { SITE, navFor, navCurrent, type PageKey } from '../data/site';
+import { blogIsLive } from '../lib/blog-live';
+
+interface Props {
+  page: PageKey;
+  // True on a subpage of the section, so the section's link gets aria-current="true" and not "page".
+  subpage?: boolean;
+}
+
+const { page, subpage = false } = Astro.props;
+const items = navFor(page, await blogIsLive());
+---
+
+<header class="top">
+  <div class="container bar">
+    <a class="brand" href="/">{SITE.name}</a>
+    <nav class="main" aria-label="Main">
+      <ul>
+        {
+          items.map((item) => {
+            const tipId = `tip-${item.label.toLowerCase()}`;
+            return (
+              <li class="nav">
+                <a href={item.href} aria-describedby={tipId} aria-current={navCurrent(item.label, page, subpage)}>
+                  {item.label}
+                </a>
+                <span class="tip" id={tipId}>
+                  {item.hint}
+                </span>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* The bar stays at the top of the screen while the page scrolls. Below 520 px wide it scrolls away instead. */
+  header.top {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--bg);
+  }
+
+  /* Wraps so that on a narrow screen the nav drops below the name. */
+  .bar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-block: 11px;
+  }
+
+  .brand {
+    margin-right: auto;
+    color: var(--ink-strong);
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .brand:hover {
+    text-decoration: none;
+  }
+
+  /* --nav-pad is the sideways padding of a link; the narrow-screen rules below shrink it and shift the nav by the same amount. */
+  nav.main {
+    --nav-pad: 14px;
+  }
+
+  /* The list may wrap onto a second row, so that a narrow screen never gets a sideways scroll however wide the links are. */
+  nav.main ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav {
+    position: relative;
+  }
+
+  .nav > a {
+    display: block;
+    padding: 8px var(--nav-pad);
+    color: var(--muted);
+    border-radius: 6px;
+  }
+
+  .nav > a:hover {
+    color: var(--ink-strong);
+    text-decoration: none;
+  }
+
+  /* The link of the current section is marked by a heavier weight and an underline as well as its colour, as the tag frame marks its
+     current tag, so colour is not the only sign. This rule comes after the hover rule, so hovering it keeps the underline. */
+  .nav > a[aria-current] {
+    color: var(--ink-strong);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  /* The hint is a small card under its link. It is hidden until the link is hovered or has keyboard focus. */
+  .tip {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    width: max-content;
+    max-width: 280px;
+    padding: 7px 12px;
+    background: var(--frame);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--muted);
+  }
+
+  .nav:hover .tip,
+  .nav:focus-within .tip {
+    display: block;
+  }
+
+  /* Phone-width windows: the nav sits on its own row, the bar scrolls away instead of sticking, and a hint spans the width below the bar. */
+  @media (max-width: 520px) {
+    header.top {
+      position: static;
+    }
+
+    /* The nav is pulled left by one link padding so the first link's text lines up with the name; the basis grows by the same amount so it still spans the row. */
+    nav.main {
+      flex-basis: calc(100% + var(--nav-pad));
+      margin-left: calc(-1 * var(--nav-pad));
+    }
+
+    .nav {
+      position: static;
+    }
+
+    .tip {
+      left: 18px;
+      right: 18px;
+      width: auto;
+      max-width: none;
+    }
+  }
+
+  /* Small phones (360 px and narrower): four links at the normal padding need about 332 px, so the padding and gaps tighten to fit one row down to about 315 px. */
+  @media (max-width: 360px) {
+    nav.main {
+      --nav-pad: 10px;
+    }
+
+    nav.main ul {
+      gap: 2px;
+    }
+  }
+</style>

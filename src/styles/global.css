@@ -1,0 +1,189 @@
+/* Global look: page defaults, typography, the width container and the 12-column frame grid. Colours come from tokens.css. */
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth in-page jumps, unless the visitor has asked for less motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* The body is a column so the footer sits at the bottom of short pages. */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Fira Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.65;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Links inside running text (paragraphs and lists in a frame, post and privacy text, publication lists) are underlined all the time,
+   so they can be told from the words around them without relying on colour. Links that stand alone (tiles, doors, the top bar) are not. */
+.frame p a,
+.frame li a,
+.post-body a,
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Titles and frame text break inside a long word (a paper title, a URL) instead of forcing a sideways scroll. */
+h1,
+h2,
+h3,
+.frame {
+  overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink-strong);
+  font-weight: 500;
+}
+
+/* Page width: about 1,200 px including the side padding. width:100% is needed because the body is a flex column. */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 32px;
+}
+
+/* The main area grows to fill the space between the top bar and the footer. */
+main.container {
+  flex: 1;
+  padding-block: 40px 64px;
+}
+
+/* Section frames sit on a 12-column grid; a frame's span class says how many columns it covers. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.frame {
+  min-width: 0;
+  background: var(--frame);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 28px 32px;
+}
+
+.frame h2 {
+  font-size: 21px;
+  margin: 0 0 14px;
+}
+
+/* Running text stays at a readable line length even inside a full-width frame. */
+.frame p {
+  margin: 0 0 12px;
+  max-width: 860px;
+}
+
+/* A row of tiles inside a frame: four across on a wide screen, one column below 860 px (see the media query below). */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+/* Three across on a wide screen, for the project tiles, whose summaries are longer. */
+.tiles.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Blog pages: the posts in one column and the tag frame beside them. The tag frame comes second in the page, so it sits on the right
+   on a wide screen and a screen reader meets the posts first; TagFrame moves it above the posts on a narrow screen. */
+.blog {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  gap: 24px;
+  align-items: start;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* Text still waiting to be written is marked with data-placeholder and shown as a dashed note, so it cannot pass for finished text. */
+p[data-placeholder] {
+  padding: 12px 16px;
+  border: 1px dashed var(--muted);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.s12 {
+  grid-column: span 12;
+}
+.s8 {
+  grid-column: span 8;
+}
+.s7 {
+  grid-column: span 7;
+}
+.s5 {
+  grid-column: span 5;
+}
+.s4 {
+  grid-column: span 4;
+}
+
+/* One column below 860 px: every frame takes the full width and the side padding narrows. */
+@media (max-width: 860px) {
+  .container {
+    padding-inline: 18px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tiles,
+  .tiles.three,
+  .blog {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .s12,
+  .s8,
+  .s7,
+  .s5,
+  .s4 {
+    grid-column: auto;
+  }
+
+  .frame {
+    padding: 22px 20px;
+  }
+}

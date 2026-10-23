@@ -1,0 +1,6 @@
+// TypeScript settings for the Astro project: Astro's strict preset, with generated build folders left out.
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "dist-test", "dist-add-test", "node_modules"]
+}

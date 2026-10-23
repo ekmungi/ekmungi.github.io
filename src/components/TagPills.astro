@@ -1,0 +1,54 @@
+---
+// A row of tag pills for one post: each pill is a plain link to that tag's page, so it works without JavaScript.
+import { postTags, tagPath } from '../lib/tags';
+
+interface Props {
+  // The `tags` field of a post, as written in its file.
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+const pills = postTags(tags);
+---
+
+<ul class="pills" aria-label="Tags">
+  {
+    pills.map(({ tag, slug }) => (
+      <li>
+        <a class="pill" href={tagPath(slug)}>
+          {tag}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* A pill sits one step darker than the card around it, as in the prototype. */
+  .pill {
+    display: inline-block;
+    padding: 1px 10px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: var(--frame-2);
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  .pill:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+</style>

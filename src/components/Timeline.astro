@@ -1,0 +1,84 @@
+---
+// A timeline: one row per position with the years on the left and the role, the organisation and one line of text on the right.
+interface Item {
+  when: string;
+  title: string;
+  org: string;
+  line: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<ol class="timeline">
+  {
+    items.map((item) => (
+      <li>
+        <span class="when">{item.when}</span>
+        <div>
+          <b>{item.title}</b> <span class="org">{item.org}</span>
+          <p>{item.line}</p>
+        </div>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* minmax(0, 1fr) lets the text column shrink, so a long organisation name wraps instead of pushing the page sideways. */
+  .timeline li {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .timeline li:first-child {
+    padding-top: 4px;
+    border-top: 0;
+  }
+
+  .when {
+    padding-top: 2px;
+    font-size: 15.5px;
+    color: var(--muted);
+  }
+
+  .timeline b {
+    color: var(--ink-strong);
+    font-weight: 500;
+  }
+
+  /* The separator dot is drawn here so that the organisation's text stays clean. */
+  .org {
+    color: var(--muted);
+  }
+
+  .org::before {
+    content: '· ';
+  }
+
+  .timeline li p {
+    margin: 4px 0 0;
+    font-size: 16.5px;
+  }
+
+  /* One column below 860 px: the years sit above the text. */
+  @media (max-width: 860px) {
+    .timeline li {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2px;
+    }
+  }
+</style>

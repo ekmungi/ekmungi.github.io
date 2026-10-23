@@ -1,0 +1,31 @@
+---
+// Blog page: every published post, newest first, with the tag frame on the right. With no published post only the title and the lede show.
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import PostCard from '../../components/PostCard.astro';
+import TagFrame from '../../components/TagFrame.astro';
+import { SITE } from '../../data/site';
+import { isPublished, sortByDateDesc } from '../../lib/content';
+import { tagCounts } from '../../lib/tags';
+
+// Drafts are hidden in the production build; the test build shows them.
+const posts = sortByDateDesc(await getCollection('posts', isPublished));
+const tags = tagCounts(posts);
+---
+
+<Base title={`Blog | ${SITE.name}`} page="blog" description="What I write about AI in healthcare, newest first, with a page for each tag.">
+  <PageHead title="Blog" lede="What I write about AI in healthcare. Tags will grow as the posts do." />
+  {
+    posts.length > 0 && (
+      <div class="blog">
+        <div class="posts">
+          {posts.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+        <TagFrame tags={tags} total={posts.length} />
+      </div>
+    )
+  }
+</Base>

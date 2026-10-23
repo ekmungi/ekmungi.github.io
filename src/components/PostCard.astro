@@ -1,0 +1,60 @@
+---
+// One post in a list on the blog or a tag page: a card with the date, the linked title, the summary and the tag pills.
+import type { CollectionEntry } from 'astro:content';
+import TagPills from './TagPills.astro';
+import { formatDay } from '../lib/projects';
+
+interface Props {
+  // A post from the `posts` collection; its file name is its address, /blog/<id>/.
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { title, date, summary, tags } = post.data;
+---
+
+<article class="post">
+  <time class="date" datetime={date.toISOString().slice(0, 10)}>{formatDay(date)}</time>
+  <h2 class="post-title"><a href={`/blog/${post.id}/`}>{title}</a></h2>
+  <p class="summary">{summary}</p>
+  <TagPills tags={tags} />
+</article>
+
+<style>
+  /* The card has the same look as a frame but smaller padding, because a list of them runs down the page. */
+  .post {
+    min-width: 0;
+    padding: 20px 26px;
+    background: var(--frame);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    overflow-wrap: anywhere;
+  }
+
+  .date {
+    display: block;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .post-title {
+    margin: 2px 0 4px;
+    font-size: 20px;
+    line-height: 1.35;
+  }
+
+  .post-title a {
+    color: var(--ink-strong);
+  }
+
+  .summary {
+    margin: 0 0 10px;
+    font-size: 16.5px;
+  }
+
+  @media (max-width: 860px) {
+    .post {
+      padding: 18px 20px;
+    }
+  }
+</style>

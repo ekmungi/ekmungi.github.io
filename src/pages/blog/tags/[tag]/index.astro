@@ -1,0 +1,40 @@
+---
+// Tag page: only the published posts that carry one tag, with the same tag frame as the blog page and that tag marked as the current one.
+import { getCollection } from 'astro:content';
+import Base from '../../../../layouts/Base.astro';
+import PageHead from '../../../../components/PageHead.astro';
+import PostCard from '../../../../components/PostCard.astro';
+import TagFrame from '../../../../components/TagFrame.astro';
+import { SITE } from '../../../../data/site';
+import { isPublished, sortByDateDesc } from '../../../../lib/content';
+import { postsWithTag, tagCounts } from '../../../../lib/tags';
+
+/**
+ * Tell Astro which tag pages to build: one per tag that a published post carries, at /blog/tags/<tag slug>/.
+ * A tag that only draft posts carry has no page in the production build.
+ * @returns one route per tag, carrying the tag's label, its posts and what the tag frame needs.
+ */
+export async function getStaticPaths() {
+  const posts = sortByDateDesc(await getCollection('posts', isPublished));
+  const tags = tagCounts(posts);
+  return tags.map(({ tag, slug }) => ({
+    params: { tag: slug },
+    props: { label: tag, posts: postsWithTag(posts, slug), tags, total: posts.length },
+  }));
+}
+
+const { label, posts, tags, total } = Astro.props;
+const { tag: slug } = Astro.params;
+---
+
+<Base title={`Posts tagged ${label} | ${SITE.name}`} page="blog" subpage description={`Posts tagged ${label}, newest first.`}>
+  <PageHead title={`Posts tagged ${label}`} lede={`${posts.length} ${posts.length === 1 ? 'post' : 'posts'}, newest first.`} />
+  <div class="blog">
+    <div class="posts">
+      {posts.map((post) => (
+        <PostCard post={post} />
+      ))}
+    </div>
+    <TagFrame tags={tags} total={total} current={slug} />
+  </div>
+</Base>

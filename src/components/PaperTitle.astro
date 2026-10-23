@@ -1,0 +1,12 @@
+---
+// The title of one paper or publication, for a list item the page draws itself: linked where the paper has an address, marked with its
+// language where that is not English, then its English translation in brackets where it has one.
+interface Props {
+  paper: { title: string; url?: string; lang?: string; translation?: string };
+}
+
+const { paper } = Astro.props;
+const { title, url, lang, translation } = paper;
+---
+
+{url ? <a href={url} lang={lang}>{title}</a> : lang ? <span lang={lang}>{title}</span> : title}{translation && ` [${translation}]`}

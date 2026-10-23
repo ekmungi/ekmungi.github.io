@@ -1,0 +1,58 @@
+---
+// Layout for plain text pages written in markdown (the privacy policy): the shared page shell, the front-matter title as the page's h1, and the text in one frame at reading width.
+import Base from './Base.astro';
+import Frame from '../components/Frame.astro';
+
+// Astro gives a markdown page's front matter to its layout as the `frontmatter` prop; its optional description describes the page to other sites.
+interface Props {
+  frontmatter: { title: string; description?: string };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Base title={frontmatter.title} page="other" description={frontmatter.description}>
+  <div class="prose">
+    {/* The h1 comes from the front-matter title and sits outside the frame, so the frame holds the markdown body and nothing else. */}
+    <h1>{frontmatter.title}</h1>
+    <Frame span={12}>
+      <slot />
+    </Frame>
+  </div>
+</Base>
+
+<style is:global>
+  /* Running text stays at most 860 px wide: that width plus the frame's side padding (2 x 32 px) and border (2 x 1 px). */
+  .prose {
+    max-width: calc(860px + 64px + 2px);
+  }
+
+  .prose h1 {
+    font-size: 40px;
+    line-height: 1.15;
+    margin: 0 0 24px;
+  }
+
+  /* The markdown output is not touched by this layout's scoped styles, so its elements are styled through the .prose class. */
+  .prose h3 {
+    font-size: 17px;
+    margin: 22px 0 8px;
+  }
+
+  .prose ul {
+    margin: 0 0 12px;
+    padding-left: 20px;
+  }
+
+  .prose li {
+    margin-bottom: 8px;
+  }
+
+  /* One column below 860 px: the title is smaller so that it stays on one line on a phone. */
+  @media (max-width: 860px) {
+    .prose h1 {
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+  }
+</style>

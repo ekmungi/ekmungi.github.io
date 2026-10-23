@@ -1,0 +1,171 @@
+---
+// Profile page: the story beside an at-a-glance block, the experience timeline, the research theme tiles, publications and patents, and mentoring. All text comes from src/content/profile and src/content/research.
+// While the story is still a placeholder, a published page leaves the Story frame out and At a glance takes the full row.
+import { getCollection, getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Frame from '../../components/Frame.astro';
+import PaperTitle from '../../components/PaperTitle.astro';
+import PageHead from '../../components/PageHead.astro';
+import Tile from '../../components/Tile.astro';
+import Timeline from '../../components/Timeline.astro';
+import { SITE } from '../../data/site';
+import { placeholdersVisible, storyIsWritten } from '../../lib/content';
+
+const entry = await getEntry('profile', 'profile');
+if (!entry) throw new Error('src/content/profile/profile.md is missing; the profile page is built from it.');
+// The Markdown body of profile.md is the story.
+const { Content } = await render(entry);
+// The Story frame shows once the story is written. The dev server and the test build also show it while it is a placeholder, so the author sees what is missing.
+const showStory = storyIsWritten(entry.body) || placeholdersVisible();
+const { glance, experience, publications, patents, mentoring, education } = entry.data;
+
+// Themes appear in the order set by each file's `order` field, lowest first.
+const themes = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+
+// The labelled facts in the At a glance frame.
+const glanceRows = [
+  ['Now', glance.now],
+  ['Based in', glance.basedIn],
+  ['Experience', glance.experience],
+  ['Education', glance.education],
+  ['Languages', glance.languages],
+];
+---
+
+<Base title={`Profile | ${SITE.name}`} page="profile" description={`${SITE.name}: work, research, publications, patents and education.`}>
+  <PageHead title="Profile" />
+  <div class="grid">
+    {
+      showStory && (
+        <Frame span={8} title="Story">
+          <Content />
+        </Frame>
+      )
+    }
+
+    <Frame span={showStory ? 4 : 12} title="At a glance">
+      <dl class:list={['glance', { wide: !showStory }]}>
+        {
+          glanceRows.map(([term, value]) => (
+            <div class:list={[{ long: term === 'Languages' }]}>
+              <dt>{term}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </Frame>
+
+    <Frame span={12} title="Experience">
+      <Timeline items={experience} />
+      <h3>Education</h3>
+      <ul class="plain education">
+        {education.map((degree) => <li>{degree}</li>)}
+      </ul>
+    </Frame>
+
+    <Frame span={12} title="Research">
+      <p>Four themes. Each tile opens a page with the problem and what was done.</p>
+      <div class="tiles">
+        {
+          themes.map((theme) => (
+            <Tile href={`/profile/research/${theme.id}/`} title={theme.data.title} meta={`${theme.data.place} · ${theme.data.period}`} />
+          ))
+        }
+      </div>
+    </Frame>
+
+    <Frame span={7} title="Publications and patents">
+      <ul class="plain publications">
+        {publications.map((paper) => <li><PaperTitle paper={paper} /></li>)}
+      </ul>
+      <h3>Patents</h3>
+      <ul class="plain patents">
+        {patents.map((patent) => <li>{patent}</li>)}
+      </ul>
+    </Frame>
+
+    <Frame span={5} title="Mentoring and community">
+      <ul class="plain">
+        {mentoring.map((item) => <li>{item}</li>)}
+      </ul>
+    </Frame>
+  </div>
+</Base>
+
+<style>
+  /* Beside the story the frame is narrow: the facts sit one under the other, each with its label on the left and its value on the right.
+     minmax(0, 1fr) lets a long value wrap inside the frame. */
+  .glance {
+    margin: 0;
+    display: grid;
+    gap: 8px;
+    font-size: 16px;
+  }
+
+  .glance > div {
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  /* With the full row to itself (the story is not written yet) the facts run across it: four in a row, each with its label above its value,
+     and the long languages line on a row of its own. */
+  .glance.wide {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px 32px;
+  }
+
+  .glance.wide > div {
+    display: block;
+  }
+
+  .glance.wide .long {
+    grid-column: 1 / -1;
+  }
+
+  .glance.wide dt {
+    margin-bottom: 2px;
+  }
+
+  .glance dt {
+    color: var(--muted);
+  }
+
+  .glance dd {
+    margin: 0;
+  }
+
+  h3 {
+    margin: 24px 0 8px;
+    font-size: 17px;
+  }
+
+  .plain {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 16.5px;
+  }
+
+  .plain li {
+    margin-bottom: 8px;
+  }
+
+  /* The publication list is long, so its lines sit a little closer together. */
+  .publications li {
+    margin-bottom: 6px;
+  }
+
+  /* The full-row facts go to two columns below 860 px and to one below 520 px, so no value is squeezed into a sliver. */
+  @media (max-width: 860px) {
+    .glance.wide {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 520px) {
+    .glance.wide {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

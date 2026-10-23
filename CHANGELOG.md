@@ -1,0 +1,37 @@
+# Changelog
+
+All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
+
+## [0.2.0] - 2026-10-23
+
+The site can go live before the portrait photo, the profile story and the first blog post exist.
+
+### Changed
+
+- Unfinished sections stay hidden in published pages. Without `public/images/photo.jpg` the landing page shows its text only. While the profile story is still a placeholder, the profile page leaves out the Story frame and At a glance uses the full row. Until the first post is published, the top menu, the landing page and the 404 page do not link to the blog. Each part appears on its own as soon as its content exists. The dev server and the test build still show the unfinished parts, marked with `data-placeholder`.
+- The launch gate checks that nothing unfinished is visible: no `data-placeholder` marks, no draft or example titles, no link to a page that is not built, no link to the blog while no post is published, and no image with metadata. It no longer asks for a portrait photo, a published post or a written story.
+
+## [0.1.0] - 2026-10-21
+
+Astro rebuild. The old Jekyll site is replaced by a new Astro 7 site.
+
+### Added
+
+- A landing page with the portrait slot, short introduction and links to the sections.
+- A profile page with an at-a-glance block, experience, publications, patents, mentoring and education, and one page for each research theme.
+- A projects section with a list and one page for each project, covering research experiments and software, with a link to the repository only where the repository is public.
+- A blog with a post list, one page for each post and one page for each tag. Tag pages are ordinary pages, so filtering works without JavaScript.
+- The privacy policy at `/privacy.html`, with the text kept word for word.
+- A top bar with one-line hints, a footer, the colour and type rules, and fonts served from the site's own files. Links inside running text are underlined, and the current top-bar link is marked by weight and an underline as well as colour. The stylesheet keeps its breakpoints in the `max-width` form, so the layout also works in Safari before 16.4.
+- A meta description and the basic Open Graph tags (title, description, address and type) on every page, and a 404 page in the site's look.
+- Paper titles in another language than English carry that language, so screen readers pronounce them correctly.
+- Content files checked at build time: dates must be written `YYYY-MM-DD`, post and project titles and summaries must not be blank, and links to repositories outside the public list are refused.
+- Privacy checks: the build is checked against private lists kept outside the repository. The check covers built pages, repository files and file names, and it also finds entries written with HTML entities or invisible characters.
+- A launch gate, `npm run check:launch`, which fails while the production build still has placeholders, draft titles, no published post or no portrait photo, or while any image in the build or its sources carries metadata (Exif, XMP or IPTC in a JPEG, text or Exif chunks in a PNG, EXIF or XMP chunks in a WebP). `npm test` and `npm run test:ci` run the same image check.
+- `npm run test:ci`, which runs the builds and every test that needs no private file.
+- A GitHub Actions workflow that runs `npm run test:ci` and the launch gate and then publishes the site to GitHub Pages on a push to `master`. Only one publishing run happens at a time, the checkout keeps no access token, every action is pinned to a full commit SHA, Dependabot proposes updates weekly, and each job has only the permissions it needs.
+- A README with instructions for adding posts and projects, previewing the site and running the checks.
+
+### Removed
+
+- The Jekyll site files and their build output.

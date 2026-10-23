@@ -1,0 +1,29 @@
+---
+// Page footer: the copyright line and the link to the privacy policy, nothing else.
+import { SITE } from '../data/site';
+
+// Evaluated when the site is built, so the year is the year of the latest build.
+const year = new Date().getFullYear();
+---
+
+<footer class="foot container">
+  <span class="copy">© {year} {SITE.name}</span>{' '}
+  <a href="/privacy.html">Privacy policy</a>
+</footer>
+
+<style>
+  .foot {
+    padding-block: 28px 36px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .foot a {
+    color: var(--muted);
+  }
+
+  /* The separator is drawn here so that the footer's text holds only the copyright and the link. */
+  .copy::after {
+    content: ' ·';
+  }
+</style>

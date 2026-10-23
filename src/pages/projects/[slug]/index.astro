@@ -1,0 +1,88 @@
+---
+// One project page: title, kind and status, a link to the code or the notebook when there is one, then the text and, when the project has any, a dated list of updates.
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import Frame from '../../../components/Frame.astro';
+import PageHead from '../../../components/PageHead.astro';
+import { SITE } from '../../../data/site';
+import { isPublished } from '../../../lib/content';
+import { formatDay, sortUpdatesDesc, statusLabel } from '../../../lib/projects';
+
+/**
+ * Tell Astro which project pages to build: one per published file in src/content/projects, at /projects/<file name>/.
+ * A draft project has no page in the production build, so its address does not exist there.
+ * @returns one route per published project, carrying the project entry as a prop.
+ */
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', isPublished);
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, kind, summary, repo, colab, updates } = project.data;
+const status = statusLabel(project.data);
+const updatesNewestFirst = sortUpdatesDesc(updates);
+// With no updates to show, the text takes the full width: a section that cannot be sourced is left out.
+const hasUpdates = updatesNewestFirst.length > 0;
+---
+
+<Base title={`${title} | ${SITE.name}`} page="projects" subpage description={summary}>
+  <PageHead title={title} lede={`${kind === 'research' ? 'Research project' : 'Software project'} · ${status}`}>
+    {
+      (repo || colab) && (
+        <p class="links">
+          {repo && <a href={repo}>View the code on GitHub</a>}
+          {colab && <a href={colab}>Open the notebook in Google Colab</a>}
+        </p>
+      )
+    }
+  </PageHead>
+  <div class="grid">
+    <Frame span={hasUpdates ? 8 : 12}>
+      <Content />
+    </Frame>
+    {
+      hasUpdates && (
+        <Frame span={4} title="Updates">
+          <ul class="updates">
+            {updatesNewestFirst.map((update) => (
+              <li>
+                <time datetime={update.date.toISOString().slice(0, 10)}>{formatDay(update.date)}</time>
+                {' '}
+                <span>{update.text}</span>
+              </li>
+            ))}
+          </ul>
+        </Frame>
+      )
+    }
+  </div>
+</Base>
+
+<style>
+  /* The links sit under the kind and status line; two links, when there are two, are spaced apart. */
+  .links {
+    margin: 10px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+  }
+
+  .updates {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+  }
+
+  .updates li {
+    margin-bottom: 14px;
+  }
+
+  .updates time {
+    display: block;
+    font-size: 15px;
+    color: var(--muted);
+  }
+</style>

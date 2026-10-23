@@ -1,0 +1,65 @@
+# Publishes the site to GitHub Pages: on every push to master, or when started by hand from the Actions tab.
+# Based on the Astro guide "Deploy your Astro Site to GitHub Pages". The site becomes public only after the repository's Pages source is set to "GitHub Actions".
+# Before anything is built for publishing, the build job runs every test that needs no private file (npm run test:ci) and the launch gate
+# (npm run check:launch). If a test fails, or something unfinished is visible in the built site (a placeholder, a draft or example title, a link to a
+# page that is not built, or an image with metadata), the workflow fails and the live site stays as it is. The tests that read the private lists run only
+# locally, with npm test.
+# Every action is pinned to a full commit SHA, which cannot be moved the way a version tag can; the comment names the version.
+# Dependabot (see .github/dependabot.yml) proposes the update when a newer version appears.
+name: Deploy to GitHub Pages
+
+on:
+  # Run every time something is pushed to the master branch.
+  push:
+    branches: [master]
+  # Allow a manual run from the Actions tab on GitHub.
+  workflow_dispatch:
+
+# Default access for every job: read the repository and nothing else. The deploy job asks for more below.
+permissions:
+  contents: read
+
+# One publishing run at a time. A newer push waits for the running one to finish instead of cancelling it halfway through a deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          # The whole history: the privacy page test compares the page with the policy text in an earlier commit.
+          fetch-depth: 0
+          # The access token is not left in the checkout, so no later step can push with it.
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 24
+      - name: Install dependencies
+        run: npm ci
+      - name: Run the tests that need no private file
+        run: npm run test:ci
+      - name: Check that the site is ready to go live
+        run: npm run check:launch
+      - name: Install, build, and upload your site output
+        uses: withastro/action@3eafd002e65cc31b4f0eae0bb05450d521562247 # v6
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5

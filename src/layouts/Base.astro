@@ -1,0 +1,48 @@
+---
+// Page shell used by every page: the document head (title, description and the basic Open Graph tags), fonts and styles, the top bar,
+// the main area and the footer.
+import '@fontsource/fira-sans/400.css';
+import '@fontsource/fira-sans/500.css';
+import '@fontsource/fira-sans/600.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE, type PageKey } from '../data/site';
+
+interface Props {
+  title: string;
+  page: PageKey;
+  // True on a page inside a section (a research theme page), so the section's top-bar link is marked aria-current="true".
+  subpage?: boolean;
+  // One or two sentences that describe the page to search engines and link previews; the name and role when a page gives none.
+  description?: string;
+  // "article" for a blog post, "website" for every other page.
+  ogType?: 'website' | 'article';
+}
+
+const { title, page, subpage = false, description = `${SITE.name}, ${SITE.role}.`, ogType = 'website' } = Astro.props;
+// The page's full public address, built from the site address in astro.config.mjs.
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:type" content={ogType} />
+  </head>
+  <body>
+    <Header page={page} subpage={subpage} />
+    <main class="container">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

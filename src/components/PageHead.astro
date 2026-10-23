@@ -1,0 +1,42 @@
+---
+// Page heading shared by the section pages: the h1, an optional muted line under it, and any slotted text below that.
+interface Props {
+  title: string;
+  lede?: string;
+}
+
+const { title, lede } = Astro.props;
+---
+
+<header class="head">
+  <h1 class="title">{title}</h1>
+  {lede && <p class="lede">{lede}</p>}
+  <slot />
+</header>
+
+<style>
+  .head {
+    margin-bottom: 28px;
+  }
+
+  .title {
+    font-size: 40px;
+    line-height: 1.15;
+    margin: 8px 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .lede {
+    margin: 0;
+    max-width: 820px;
+    font-size: 19px;
+    color: var(--muted);
+  }
+
+  /* One column below 860 px: a smaller title stays on few lines on a phone. */
+  @media (max-width: 860px) {
+    .title {
+      font-size: 32px;
+    }
+  }
+</style>

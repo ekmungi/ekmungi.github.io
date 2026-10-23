@@ -1,0 +1,44 @@
+---
+// Projects page: a Research projects frame (only while a research project is published) and a Software projects frame, one tile per project. All text comes from src/content/projects.
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Frame from '../../components/Frame.astro';
+import PageHead from '../../components/PageHead.astro';
+import Tile from '../../components/Tile.astro';
+import { SITE } from '../../data/site';
+import { isPublished } from '../../lib/content';
+import { sortByTitle, statusLabel } from '../../lib/projects';
+
+// Drafts are hidden in the production build; the test build shows them.
+const published = await getCollection('projects', isPublished);
+const research = sortByTitle(published.filter((project) => project.data.kind === 'research'));
+const software = sortByTitle(published.filter((project) => project.data.kind === 'software'));
+---
+
+<Base title={`Projects | ${SITE.name}`} page="projects" description="Research experiments and the software I build, one page each.">
+  <PageHead title="Projects" lede="Research experiments and the software I build, one page each." />
+  <div class="grid">
+    {
+      research.length > 0 && (
+        <Frame span={12} title="Research projects">
+          <p>Experiments in Google Colab. Each page grows from the question to the plan to the results, with the notebook one click away.</p>
+          <div class="tiles three">
+            {research.map((project) => (
+              <Tile href={`/projects/${project.id}/`} title={project.data.title} meta={project.data.summary} badge={statusLabel(project.data)} accent={Boolean(project.data.repo)} />
+            ))}
+          </div>
+        </Frame>
+      )
+    }
+    <Frame span={12} title="Software projects">
+      <p>Tools I build with Gen AI for my own research, analysis and writing.</p>
+      <div class="tiles three">
+        {
+          software.map((project) => (
+            <Tile href={`/projects/${project.id}/`} title={project.data.title} meta={project.data.summary} badge={statusLabel(project.data)} accent={Boolean(project.data.repo)} />
+          ))
+        }
+      </div>
+    </Frame>
+  </div>
+</Base>

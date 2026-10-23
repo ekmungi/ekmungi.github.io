@@ -1,0 +1,106 @@
+---
+// The tag frame on the blog: "All posts" first, then every tag with its post count. Each item is a plain link to a page, so no JavaScript is needed.
+import { tagPath, type TagCount } from '../lib/tags';
+
+interface Props {
+  // Every tag with its count, in the order to show (see tagCounts).
+  tags: TagCount[];
+  // How many posts there are in all; shown beside "All posts".
+  total: number;
+  // The slug of the tag whose page this is; leave it out on the page that lists every post.
+  current?: string;
+}
+
+const { tags, total, current } = Astro.props;
+---
+
+<aside class="tagframe" aria-labelledby="tagframe-title">
+  <h2 id="tagframe-title">Tags</h2>
+  <ul>
+    <li>
+      <a href="/blog/" aria-current={current === undefined ? 'page' : undefined}>
+        <span class="tag-name">All posts</span>
+        <span class="tag-count">{total}</span>
+      </a>
+    </li>
+    {
+      tags.map(({ tag, slug, count }) => (
+        <li>
+          <a href={tagPath(slug)} aria-current={slug === current ? 'page' : undefined}>
+            <span class="tag-name">{tag}</span>
+            <span class="tag-count">{count}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</aside>
+
+<style>
+  /* The tag frame is the one dark frame on the site: it sits one step darker than the page, as in the prototype. */
+  .tagframe {
+    min-width: 0;
+    padding: 22px 24px;
+    background: var(--frame-2);
+    border-radius: 14px;
+    /* It stays in view while the posts scroll. A long list scrolls inside the frame instead of running below the screen. */
+    position: sticky;
+    top: 84px;
+    max-height: calc(100vh - 104px);
+    overflow-y: auto;
+  }
+
+  h2 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 5px 0;
+    font-size: 16px;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+
+  a:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .tag-count {
+    color: var(--muted);
+  }
+
+  /* The current page is in the accent colour, a heavier weight and underlined, so colour is not the only sign. */
+  a[aria-current] {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  a[aria-current] .tag-name {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* On a narrow screen the frame moves above the posts (order: -1 puts it first in the single column) and stops sticking. */
+  @media (max-width: 860px) {
+    .tagframe {
+      order: -1;
+      position: static;
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+</style>

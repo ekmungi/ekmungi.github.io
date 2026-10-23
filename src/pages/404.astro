@@ -1,0 +1,20 @@
+---
+// The page GitHub Pages shows for an address that does not exist (it serves /404.html): the site's look, a short note and the way back.
+import Base from '../layouts/Base.astro';
+import Frame from '../components/Frame.astro';
+import PageHead from '../components/PageHead.astro';
+import { SITE } from '../data/site';
+import { blogIsLive } from '../lib/blog-live';
+
+// The way back to the blog is offered only once the blog has a post.
+const blogLive = await blogIsLive();
+---
+
+<Base title={`Page not found | ${SITE.name}`} page="other" description="This address has no page on the site.">
+  <PageHead title="Page not found" lede="There is no page at this address." />
+  <div class="grid">
+    <Frame span={12}>
+      <p>Go to the <a href="/">landing page</a>{blogLive && <>, or read the <a href="/blog/">blog</a></>}.</p>
+    </Frame>
+  </div>
+</Base>

@@ -1,0 +1,65 @@
+---
+// A tile: a small bordered card that links to a page, with a title, an optional muted line under it and an optional small status line at the foot.
+interface Props {
+  href: string;
+  title: string;
+  meta?: string;
+  // The status line at the foot of the tile, for example "Public on GitHub".
+  badge?: string;
+  // True to draw the status line in the accent colour; the default is the muted colour.
+  accent?: boolean;
+}
+
+const { href, title, meta, badge, accent = false } = Astro.props;
+---
+
+<a class="tile" href={href}>
+  <span class="tile-title">{title}</span>
+  {meta && <span class="tile-meta">{meta}</span>}
+  {badge && <span class:list={['tile-badge', { accent }]}>{badge}</span>}
+</a>
+
+<style>
+  /* The tile sits one step darker than the frame around it, as in the prototype. */
+  .tile {
+    display: block;
+    padding: 16px 18px;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    color: var(--ink);
+  }
+
+  .tile:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+  }
+
+  .tile-title {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--ink-strong);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .tile-meta {
+    display: block;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--muted);
+  }
+
+  /* The status line sits under the summary, a little smaller; the accent colour marks a public repository. */
+  .tile-badge {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--muted);
+  }
+
+  .tile-badge.accent {
+    color: var(--accent);
+  }
+</style>
