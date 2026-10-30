@@ -2,6 +2,13 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.4.2] - 2026-10-30
+
+### Changed
+
+- The Spyglass page says at the top that Spyglass is under heavy development and names the version it describes (0.32.0). It has a new text: the problem, a "How it is built" section, and what it does. A redesign is under way, so the page names where it is heading and leaves out views of the dashboard, which the redesign changes most. It has a diagram of what stays on the computer and what goes to hosted models, and five references: the Arctic-Embed paper, Cover and Hart on nearest-neighbour classification, Jina AI's Reader, the MCP specification and the Claude Code documentation on programmatic runs. The code stays private, so the page has no repository link. An independent review against the released code corrected three false statements and a protocol version before publishing.
+- The privacy test for private projects now lets a page link outside the site from its References frame only, and still refuses any link to GitHub or mention of it. Before, a private project's page could not cite any source.
+
 ## [0.4.1] - 2026-10-30
 
 ### Changed

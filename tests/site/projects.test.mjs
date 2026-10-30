@@ -95,12 +95,16 @@ test('a project page shows its title, kind and status, and links in its head onl
   }
 });
 
-test('a private project links nowhere outside the site and does not mention GitHub', () => {
+test('a private project links outside the site only from its References frame, never to GitHub, and does not mention GitHub', () => {
   for (const { outDir, projects } of BUILDS) {
     for (const { id, data } of projects.filter((project) => project.data.private)) {
       const main = loadPage(outDir, `/projects/${id}/`).querySelector('main');
       assert.equal(tidy(main.querySelector('.lede').text).endsWith('· Code private'), true, id);
-      assert.equal(main.querySelectorAll('a[href^="http"], a[href^="//"]').length, 0, `${id} (${data.title}) has no outside link`);
+      // Citations of published papers and documentation may link out; nothing else on the page may, so no link can lead to the code.
+      const outside = main.querySelectorAll('a[href^="http"], a[href^="//"]');
+      const cited = main.querySelectorAll('ul.references a');
+      assert.deepEqual(outside.filter((link) => !cited.includes(link)).map((link) => link.getAttribute('href')), [], `${id} (${data.title}) links out only from its references`);
+      assert.deepEqual(outside.map((link) => link.getAttribute('href')).filter((href) => /github/i.test(href)), [], `${id} has no GitHub link`);
       assert.ok(!/github/i.test(tidy(main.text)), `${id} does not mention GitHub`);
     }
   }
