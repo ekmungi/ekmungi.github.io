@@ -2,6 +2,12 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.4.5] - 2026-10-30
+
+### Added
+
+- A Jeeves View page. Jeeves View is an Obsidian plugin that opens notes as pages you edit like documents, with comments that Claude can read and answer. The page describes version 0.1.8 and says it is an early version. It has the problem, a "How it is built" section on the safe round trip from Markdown to page and back, comments that stay attached as the text changes, and the local MCP server Claude uses, then what it does. It shows four views drawn from the plugin's code and its demo page with an invented note: a note as a page, the comments column, a table being edited and the settings for Claude's connection. It also has a diagram and four references: the W3C Web Annotation Data Model, the MCP transport specification, sql.js and Obsidian's documentation on views. The code stays private, so the page has no repository link. An independent review against the code corrected an overstated claim about merging edits, the place of the comment database, the order of the header icons and several smaller wordings first.
+
 ## [0.4.4] - 2026-10-30
 
 ### Changed

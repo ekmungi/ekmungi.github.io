@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="jv-settings-title jv-settings-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="jv-settings-title">Settings for comments and Claude's connection</title>
+  <desc id="jv-settings-desc">A drawing of the Jeeves View settings tab, scrolled to two sections. Under Comments, the comment database is stored at D:\Notes\.jeeves-view\comments.sqlite, with a .bak copy made each time Obsidian starts, and its field holds .jeeves-view/comments.sqlite. Under Claude's connection, the toggle Let Claude read and answer comments is on, with the status Running on 127.0.0.1:27125. The port field holds 27125 beside a restart icon. Connect Claude Code has a copy icon for the command, which contains a private key, and a key icon that makes a new key.</desc>
+
+  <!-- Window: drawn from the plugin's settings code. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
+  <text x="18" y="24" font-size="11" fill="#626366">Settings</text>
+  <!-- Settings open as a dialog inside Obsidian, with a close button only. -->
+  <path d="M 474 16 L 482 24 M 482 16 L 474 24" stroke="#8b8c8f" stroke-width="1.2" fill="none"/>
+  <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
+
+  <!-- Settings sidebar, with the plugin's tab selected. -->
+  <path d="M 6 35 H 126 V 344 H 14 Q 6 344 6 336 Z" fill="#f6f6f6"/>
+  <line x1="126.5" y1="35" x2="126.5" y2="344" stroke="#dbdbd7"/>
+  <g font-size="11">
+    <text x="18" y="56" font-size="10" font-weight="600" fill="#a3a4a6">Options</text>
+    <text x="18" y="76" fill="#2b2c2e">General</text>
+    <text x="18" y="94" fill="#2b2c2e">Editor</text>
+    <text x="18" y="112" fill="#2b2c2e">Appearance</text>
+    <text x="18" y="140" font-size="10" font-weight="600" fill="#a3a4a6">Community plugins</text>
+    <rect x="12" y="149" width="108" height="20" rx="4" fill="#e2e2de"/>
+    <text x="18" y="163" fill="#2b2c2e">Jeeves View</text>
+  </g>
+
+  <!-- Two of the tab's sections, word for word. Pages, Layout and Text styles sit above them. -->
+  <g font-size="12.5" font-weight="600" fill="#2b2c2e">
+    <text x="142" y="58">Comments</text>
+    <text x="142" y="146">Claude's connection</text>
+  </g>
+  <g stroke="#ececeb">
+    <line x1="142" y1="66.5" x2="482" y2="66.5"/>
+    <line x1="142" y1="126.5" x2="482" y2="126.5"/>
+    <line x1="142" y1="154.5" x2="482" y2="154.5"/>
+    <line x1="142" y1="214.5" x2="482" y2="214.5"/>
+    <line x1="142" y1="264.5" x2="482" y2="264.5"/>
+  </g>
+  <g font-size="11" font-weight="500" fill="#2b2c2e">
+    <text x="142" y="84">Comment database</text>
+    <text x="142" y="172">Let Claude read and answer comments</text>
+    <text x="142" y="232">Port</text>
+    <text x="142" y="282">Connect Claude Code</text>
+  </g>
+  <g font-size="9.5" fill="#626366">
+    <text x="142" y="98">Stored at D:\Notes\.jeeves-view\</text>
+    <text x="142" y="110">comments.sqlite. A .bak copy is made</text>
+    <text x="142" y="122">each time Obsidian starts.</text>
+    <text x="142" y="186">Serves a local MCP connection for Claude</text>
+    <text x="142" y="198">Code on this computer only. Status:</text>
+    <text x="142" y="210">Running on 127.0.0.1:27125.</text>
+    <text x="142" y="246">Change it only if another program uses</text>
+    <text x="142" y="258">this port.</text>
+    <text x="142" y="296">Copy this command, run it once in a</text>
+    <text x="142" y="308">terminal, then start a new Claude Code</text>
+    <text x="142" y="320">session. It contains a private key; do not</text>
+    <text x="142" y="332">share it.</text>
+  </g>
+
+  <!-- Controls: the database field, the toggle (on), the port field and its restart icon, then copy and new-key icons. -->
+  <rect x="336" y="78" width="146" height="22" rx="4" fill="#ffffff" stroke="#c4c5c1"/>
+  <text x="343" y="93" font-size="9" fill="#2b2c2e">.jeeves-view/comments.sqlite</text>
+  <rect x="452" y="166" width="30" height="17" rx="8.5" fill="#4a5f86"/>
+  <circle cx="473.5" cy="174.5" r="6.5" fill="#ffffff"/>
+  <rect x="402" y="226" width="56" height="22" rx="4" fill="#ffffff" stroke="#c4c5c1"/>
+  <text x="409" y="241" font-size="9.5" fill="#2b2c2e">27125</text>
+  <g fill="none" stroke="#626366" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 478 234 A 5 5 0 1 0 478 240 M 478 230.5 V 234 H 474.5"/>
+    <rect x="448" y="280" width="8" height="9" rx="1"/><path d="M 451 280 V 277 H 459 V 286 H 456"/>
+    <circle cx="471" cy="285" r="3"/><path d="M 473 283 L 480 276 M 477 279 L 479 281"/>
+  </g>
+
+  <!-- Window outline last, so the border stays crisp over the fills. -->
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="none" stroke="#c4c5c1"/>
+</svg>

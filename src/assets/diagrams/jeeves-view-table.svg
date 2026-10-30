@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="jv-table-title jv-table-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="jv-table-title">A table edited in place</title>
+  <desc id="jv-table-desc">A drawing of Jeeves View with the cursor in a table cell. The Watering rota card holds a table with the columns Date, Task and Who and three rows, the first row bold as a header. The cell Mulch the beds is outlined with the cursor in it. Above the table an icon bar adds a row above or below, adds a column on the left or right, aligns the column, switches Bold first row, lit here, and Bold first column, and opens more actions. A hint names the lit icon: Bold first row (header row). In the margin are the icons to comment on the table and to edit it as Markdown, and the table tool in the toolbar is lit.</desc>
+
+  <!-- Window: drawn from the plugin's code, with an invented note. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
+  <text x="18" y="24" font-size="11" fill="#626366">Community Garden</text>
+  <g stroke="#8b8c8f" stroke-width="1.2" fill="none">
+    <path d="M 438 20 H 446"/>
+    <rect x="456" y="16" width="8" height="8"/>
+    <path d="M 474 16 L 482 24 M 482 16 L 474 24"/>
+  </g>
+  <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
+
+  <!-- Ribbon: the book icon is lit while notes open as pages. -->
+  <path d="M 6 35 H 30 V 344 H 14 Q 6 344 6 336 Z" fill="#f6f6f6"/>
+  <line x1="30.5" y1="35" x2="30.5" y2="344" stroke="#dbdbd7"/>
+  <g fill="none" stroke="#4a5f86" stroke-width="1.3" stroke-linejoin="round">
+    <path d="M 18 48 Q 14 45 11 46 V 57 Q 14 56 18 59 Q 22 56 25 57 V 46 Q 22 45 18 48 Z M 18 48 V 59"/>
+  </g>
+  <g fill="#dcdcd9">
+    <rect x="12" y="72" width="12" height="12" rx="3"/>
+    <rect x="12" y="94" width="12" height="12" rx="3"/>
+  </g>
+
+  <!-- Tab, then the page header. Obsidian puts each added icon to the left of the last, so the plugin's three read comments, copy for Claude, open in Obsidian's editor, then Obsidian's own More options. -->
+  <rect x="31" y="35" width="463" height="22" fill="#f6f6f6"/>
+  <rect x="35" y="39" width="130" height="18" rx="4" fill="#ffffff"/>
+  <text x="43" y="52" font-size="10" fill="#2b2c2e">Community Garden</text>
+  <line x1="31" y1="57.5" x2="494" y2="57.5" stroke="#dbdbd7"/>
+  <text x="44" y="72" font-size="9.5" font-weight="500" fill="#626366">Community Garden</text>
+  <g fill="none" stroke="#626366" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 418 63 H 429 V 71 H 422 L 419 74 V 71 H 418 Z"/>
+    <path d="M 442 63 H 448 V 74 H 440 V 63 Z M 442 62 H 446 V 64 H 442 Z"/>
+    <path d="M 456 62 H 462 L 465 65 V 74 H 456 Z M 459 68 L 458 69.5 L 459 71 M 462 68 L 463 69.5 L 462 71"/>
+    <path d="M 480 64 V 64.2 M 480 68.4 V 68.6 M 480 72.8 V 73" stroke-width="1.8"/>
+  </g>
+  <line x1="31" y1="79.5" x2="494" y2="79.5" stroke="#ececeb"/>
+
+  <!-- Toolbar: undo, redo; bold, italic, strikethrough, highlight, code; heading, lists, checklist, quote, table; note link, web link; comment. -->
+  <g stroke="#626366" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 44 92 Q 44 86 50 86 Q 55 86 55 91 M 44 92 L 42 89 M 44 92 L 47 90"/>
+    <path d="M 73 92 Q 73 86 67 86 Q 62 86 62 91 M 73 92 L 75 89 M 73 92 L 70 90" stroke="#a3a4a6"/>
+  </g>
+  <line x1="83.5" y1="84" x2="83.5" y2="96" stroke="#dbdbd7"/>
+  <g font-size="11" fill="#626366" text-anchor="middle">
+    <text x="94" y="94" font-weight="700">B</text>
+    <text x="110" y="94" font-style="italic" font-family="Georgia, serif">I</text>
+    <text x="125" y="94" text-decoration="line-through">S</text>
+  </g>
+  <g stroke="#626366" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 137 92 L 143 85 L 146 88 L 139 94 Z"/>
+    <path d="M 152 89 L 154 91 L 156 89"/>
+    <path d="M 165 87 L 162 90 L 165 93 M 171 87 L 174 90 L 171 93"/>
+  </g>
+  <rect x="136" y="96" width="10" height="2" fill="#e3b93a"/>
+  <line x1="181.5" y1="84" x2="181.5" y2="96" stroke="#dbdbd7"/>
+  <text x="192" y="94" font-size="11" font-weight="600" fill="#626366" text-anchor="middle">H</text>
+  <g stroke="#626366" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 205 86 H 206 M 205 90 H 206 M 205 94 H 206 M 209 86 H 215 M 209 90 H 215 M 209 94 H 215"/>
+    <path d="M 225 86 H 231 M 225 90 H 231 M 225 94 H 231"/>
+    <rect x="238" y="85" width="4" height="4" rx="0.5"/>
+    <path d="M 245 87 H 251 M 238 93 L 239.5 94.5 L 242 92 M 245 93 H 251"/>
+    <path d="M 259 89 Q 259 86 262 86 M 259 89 V 93 H 262 V 89 H 259 M 265 89 Q 265 86 268 86 M 265 89 V 93 H 268 V 89 H 265"/>
+    <path d="M 273 89 L 275 91 L 277 89"/>
+  </g>
+  <g font-size="5" fill="#626366"><text x="220" y="88">1</text><text x="220" y="92">2</text><text x="220" y="96">3</text></g>
+  <rect x="281" y="82" width="16" height="16" rx="3" fill="#e7ebf2"/>
+  <g stroke="#4a5f86" stroke-width="1.1" fill="none">
+    <rect x="284" y="85" width="10" height="10" rx="1"/>
+    <path d="M 284 88.5 H 294 M 284 91.5 H 294 M 289 85 V 95"/>
+  </g>
+  <line x1="303.5" y1="84" x2="303.5" y2="96" stroke="#dbdbd7"/>
+  <g stroke="#626366" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 312 85 H 318 L 321 88 V 95 H 312 Z M 315 91 H 318 M 317 89 L 319 91 L 317 93"/>
+    <path d="M 333 88 L 335 86 Q 337 84 339 86 Q 341 88 339 90 L 337 92 M 333 92 L 331 94 Q 329 96 327 94 Q 325 92 327 90 L 329 88 M 331 91 L 335 87"/>
+  </g>
+  <line x1="347.5" y1="84" x2="347.5" y2="96" stroke="#dbdbd7"/>
+  <g stroke="#626366" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 355 85 H 367 V 93 H 360 L 357 96 V 93 H 355 Z M 361 87 V 91 M 359 89 H 363"/>
+  </g>
+  <line x1="31" y1="101.5" x2="494" y2="101.5" stroke="#ececeb"/>
+
+  <!-- The card and its table. -->
+  <rect x="52" y="112" width="404" height="196" rx="10" fill="#fafaf9" stroke="#dbdbd7"/>
+  <text x="66" y="134" font-size="13" font-weight="700" fill="#2b2c2e">Watering rota</text>
+  <rect x="66" y="168" width="354" height="104" fill="#ffffff" stroke="#dbdbd7"/>
+  <rect x="66.5" y="168.5" width="353" height="25" fill="#f3f3f1"/>
+  <line x1="66" y1="194.5" x2="420" y2="194.5" stroke="#dbdbd7"/>
+  <line x1="66" y1="220.5" x2="420" y2="220.5" stroke="#dbdbd7"/>
+  <line x1="66" y1="246.5" x2="420" y2="246.5" stroke="#dbdbd7"/>
+  <line x1="160.5" y1="168" x2="160.5" y2="272" stroke="#dbdbd7"/>
+  <line x1="308.5" y1="168" x2="308.5" y2="272" stroke="#dbdbd7"/>
+  <text x="76" y="185" font-size="9.5" font-weight="600" fill="#2b2c2e">Date</text>
+  <text x="168" y="185" font-size="9.5" font-weight="600" fill="#2b2c2e">Task</text>
+  <text x="316" y="185" font-size="9.5" font-weight="600" fill="#2b2c2e">Who</text>
+  <text x="76" y="211" font-size="9.5" fill="#2b2c2e">2026-10-12</text>
+  <text x="168" y="211" font-size="9.5" fill="#2b2c2e">Plant the garlic</text>
+  <text x="316" y="211" font-size="9.5" fill="#4a5f86" text-decoration="underline">Sam Lee</text>
+  <text x="76" y="237" font-size="9.5" fill="#2b2c2e">2026-10-19</text>
+  <text x="168" y="237" font-size="9.5" fill="#2b2c2e">Mulch the beds</text>
+  <text x="316" y="237" font-size="9.5" fill="#4a5f86" text-decoration="underline">Ana Ruiz</text>
+  <text x="76" y="263" font-size="9.5" fill="#2b2c2e">2026-10-26</text>
+  <text x="168" y="263" font-size="9.5" fill="#2b2c2e">Clear the shed</text>
+  <text x="316" y="263" font-size="9.5" fill="#4a5f86" text-decoration="underline">Sam Lee</text>
+  <!-- The cell with the cursor. -->
+  <rect x="160.5" y="220.5" width="147" height="25" fill="none" stroke="#4a5f86" stroke-width="1.2"/>
+  <line x1="214.5" y1="226" x2="214.5" y2="240" stroke="#2b2c2e" stroke-width="1"/>
+
+  <!-- The margin icons: comment on this table, and edit it as Markdown. -->
+  <g fill="none" stroke="#a3a4a6" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 36 172 H 46 V 179 H 40 L 37 182 V 179 H 36 Z M 41 174 V 177 M 39.5 175.5 H 42.5"/>
+    <path d="M 37 200 L 44 193 L 46 195 L 39 202 H 37 Z M 37 205 H 46"/>
+  </g>
+
+  <!-- The icon bar that appears while the cursor is in the table. -->
+  <rect x="262" y="138" width="158" height="22" rx="7" fill="#ffffff" stroke="#dbdbd7"/>
+  <g fill="none" stroke="#626366" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="268" y="145" width="10" height="8" rx="1"/><path d="M 268 149 H 278 M 273 141.5 V 144"/>
+    <rect x="286" y="143" width="10" height="8" rx="1"/><path d="M 286 147 H 296 M 291 152 V 154.5"/>
+    <rect x="306" y="144" width="8" height="10" rx="1"/><path d="M 310 144 V 154 M 302.5 149 H 305"/>
+    <rect x="320" y="144" width="8" height="10" rx="1"/><path d="M 324 144 V 154 M 329 149 H 331.5"/>
+    <path d="M 338 145 H 348 M 338 149 H 345 M 338 153 H 348"/>
+  </g>
+  <rect x="353" y="141" width="16" height="16" rx="3" fill="#e7ebf2"/>
+  <g fill="none" stroke="#4a5f86" stroke-width="1.1"><rect x="356" y="144" width="10" height="10" rx="1"/><path d="M 356 147.5 H 366"/></g>
+  <rect x="356" y="144" width="10" height="3.5" fill="#4a5f86" opacity="0.35"/>
+  <g fill="none" stroke="#626366" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="376" y="144" width="10" height="10" rx="1"/><path d="M 379.5 144 V 154"/>
+    <path d="M 396 149 H 396.5 M 400 149 H 400.5 M 404 149 H 404.5" stroke-width="1.8"/>
+  </g>
+  <rect x="376" y="144" width="3.5" height="10" fill="#626366" opacity="0.25"/>
+
+  <!-- The hint for the lit icon, as Obsidian shows hover hints. -->
+  <rect x="300" y="116" width="134" height="18" rx="4" fill="#2b2c2e"/>
+  <text x="367" y="128" font-size="8.5" fill="#ffffff" text-anchor="middle">Bold first row (header row)</text>
+
+  <!-- Text after the table. -->
+  <text x="66" y="294" font-size="9.5" fill="#2b2c2e">Water before nine on hot days. The tank arrives on 24 October.</text>
+
+  <!-- Window outline last, so the border stays crisp over the fills. -->
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="none" stroke="#c4c5c1"/>
+</svg>

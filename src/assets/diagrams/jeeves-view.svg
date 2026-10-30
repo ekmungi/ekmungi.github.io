@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 344" style="min-width:960px" role="img" aria-labelledby="jeeves-view-title jeeves-view-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="jeeves-view-title">How Jeeves View works</title>
+  <desc id="jeeves-view-desc">Inside the plugin, a block parser reads the Markdown note, splits it into blocks and joins them back. The page checks that each block converts back to its exact Markdown and edits only the blocks that do. Only edited blocks are converted back, and the parser joins them with the untouched ones to save the note. The page attaches comments to the text by quote and context, and keeps them in a SQLite database through sql.js. The plugin's MCP server, on 127.0.0.1 with a secret key, lets Claude Code list, reply to and resolve the comments. Claude Code changes the note itself through the separate Obsidian MCP server, which writes the note.</desc>
+  <defs>
+    <marker id="jeeves-view-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto-start-reverse">
+      <polygon points="0 0, 8 3, 0 6" fill="#8b8c8f"/>
+    </marker>
+    <marker id="jeeves-view-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4a5f86"/>
+    </marker>
+  </defs>
+
+  <!-- Paper: the frame colour, so label masks match what sits behind them. -->
+  <rect width="960" height="344" fill="#f8f8f7"/>
+
+  <!-- Zone: the parts that run inside the plugin. -->
+  <path d="M 264 24 H 936 Q 944 24 944 32 V 320 Q 944 328 936 328 H 744 Q 736 328 736 320 V 168 H 264 Q 256 168 256 160 V 32 Q 256 24 264 24 Z" fill="#3a3b3d" fill-opacity="0.02" stroke="#dbdbd7" stroke-width="1"/>
+  <text x="272" y="46" fill="#626366" font-size="11" font-weight="500" letter-spacing="0.12em">JEEVES VIEW</text>
+
+  <!-- Connectors, drawn before the boxes. -->
+  <g fill="none" stroke="#8b8c8f" stroke-width="1.2">
+    <path d="M 208 100 H 271" marker-end="url(#jeeves-view-arrow)"/>
+    <path d="M 272 116 H 209" marker-end="url(#jeeves-view-arrow)"/>
+    <path d="M 512 116 H 449" marker-end="url(#jeeves-view-arrow)"/>
+    <path d="M 689 108 H 751" marker-start="url(#jeeves-view-arrow)" marker-end="url(#jeeves-view-arrow)"/>
+    <path d="M 840 145 V 231" marker-start="url(#jeeves-view-arrow)" marker-end="url(#jeeves-view-arrow)"/>
+    <path d="M 689 268 H 751" marker-start="url(#jeeves-view-arrow)" marker-end="url(#jeeves-view-arrow)"/>
+    <path d="M 512 268 H 449" marker-end="url(#jeeves-view-arrow)"/>
+    <path d="M 272 268 H 128 Q 120 268 120 260 V 145" marker-end="url(#jeeves-view-arrow)"/>
+  </g>
+  <!-- The round-trip check carries the accent: only exact blocks reach the page. -->
+  <path d="M 448 100 H 511" fill="none" stroke="#4a5f86" stroke-width="1.4" marker-end="url(#jeeves-view-arrow-accent)"/>
+
+  <!-- Connector labels on masks, with a gap to their line. -->
+  <g font-size="11" font-weight="500" letter-spacing="0.06em" fill="#626366">
+    <rect x="218" y="76" width="44" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="240" y="88" text-anchor="middle">READ</text>
+    <rect x="218" y="124" width="44" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="240" y="136" text-anchor="middle">SAVE</text>
+    <rect x="456" y="76" width="48" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="480" y="88" text-anchor="middle" fill="#4a5f86">EXACT</text>
+    <rect x="456" y="124" width="48" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="480" y="136" text-anchor="middle">EDITS</text>
+    <rect x="692" y="84" width="56" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="720" y="96" text-anchor="middle">ANCHOR</text>
+    <rect x="744" y="180" width="88" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="828" y="192" text-anchor="end">READ, ANSWER</text>
+    <rect x="702" y="244" width="36" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="720" y="256" text-anchor="middle">MCP</text>
+    <rect x="452" y="244" width="56" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="480" y="256" text-anchor="middle">CHANGES</text>
+    <rect x="166" y="244" width="52" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="192" y="256" text-anchor="middle">WRITES</text>
+  </g>
+
+  <!-- Boxes: opaque fills, so the lines drawn before them stop at their edges. -->
+  <g stroke-width="1">
+    <rect x="32" y="72" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="272" y="72" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="512" y="72" width="176" height="72" rx="6" fill="#eef1f6" stroke="#4a5f86" stroke-width="1.4"/>
+    <rect x="752" y="72" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="272" y="232" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="512" y="232" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="752" y="232" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+  </g>
+
+  <!-- Names and sublabels. -->
+  <g text-anchor="middle">
+    <g font-size="15" font-weight="600" fill="#2b2c2e">
+      <text x="120" y="96">Markdown note</text>
+      <text x="360" y="96">Block parser</text>
+      <text x="600" y="96" fill="#4a5f86">Page</text>
+      <text x="840" y="96">Comments</text>
+      <text x="360" y="256">Obsidian MCP</text>
+      <text x="600" y="256">Claude Code</text>
+      <text x="840" y="256">MCP server</text>
+    </g>
+    <g font-size="12" fill="#626366">
+      <text x="120" y="116">the file in the vault,</text>
+      <text x="120" y="132">the only record</text>
+      <text x="360" y="116">splits the note into</text>
+      <text x="360" y="132">blocks, joins them back</text>
+      <text x="600" y="116">checks the round trip,</text>
+      <text x="600" y="132">edits blocks that pass</text>
+      <text x="840" y="116">SQLite through sql.js,</text>
+      <text x="840" y="132">quote and its context</text>
+      <text x="360" y="276">a separate server</text>
+      <text x="360" y="292">that writes the note</text>
+      <text x="600" y="276">answers the comments,</text>
+      <text x="600" y="292">changes the note</text>
+      <text x="840" y="276">127.0.0.1, secret key,</text>
+      <text x="840" y="292">list, reply, resolve</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="jv-page-title jv-page-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="jv-page-title">A note as a page</title>
+  <desc id="jv-page-desc">A drawing of Jeeves View with an invented note, Community Garden. Under the toolbar the title sits above the note's properties: type project, status In progress, owner Sam Lee as a link, start date 2026-09-01 and the tag garden. A Bottom line callout follows, then the Updates section as a card, marked with a sparkle because the note flags it as maintained by Claude. Its dated entries form a timeline, each with a dot, a date and a linked note, and a line beside the entry's text.</desc>
+
+  <!-- Window: drawn from the plugin's code, with an invented note. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
+  <text x="18" y="24" font-size="11" fill="#626366">Community Garden</text>
+  <g stroke="#8b8c8f" stroke-width="1.2" fill="none">
+    <path d="M 438 20 H 446"/>
+    <rect x="456" y="16" width="8" height="8"/>
+    <path d="M 474 16 L 482 24 M 482 16 L 474 24"/>
+  </g>
+  <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
+
+  <!-- Ribbon: the book icon is lit while notes open as pages. -->
+  <path d="M 6 35 H 30 V 344 H 14 Q 6 344 6 336 Z" fill="#f6f6f6"/>
+  <line x1="30.5" y1="35" x2="30.5" y2="344" stroke="#dbdbd7"/>
+  <g fill="none" stroke="#4a5f86" stroke-width="1.3" stroke-linejoin="round">
+    <path d="M 18 48 Q 14 45 11 46 V 57 Q 14 56 18 59 Q 22 56 25 57 V 46 Q 22 45 18 48 Z M 18 48 V 59"/>
+  </g>
+  <g fill="#dcdcd9">
+    <rect x="12" y="72" width="12" height="12" rx="3"/>
+    <rect x="12" y="94" width="12" height="12" rx="3"/>
+  </g>
+
+  <!-- Tab, then the page header. Obsidian puts each added icon to the left of the last, so the plugin's three read comments, copy for Claude, open in Obsidian's editor, then Obsidian's own More options. -->
+  <rect x="31" y="35" width="463" height="22" fill="#f6f6f6"/>
+  <rect x="35" y="39" width="130" height="18" rx="4" fill="#ffffff"/>
+  <text x="43" y="52" font-size="10" fill="#2b2c2e">Community Garden</text>
+  <line x1="31" y1="57.5" x2="494" y2="57.5" stroke="#dbdbd7"/>
+  <text x="44" y="72" font-size="9.5" font-weight="500" fill="#626366">Community Garden</text>
+  <g fill="none" stroke="#626366" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 418 63 H 429 V 71 H 422 L 419 74 V 71 H 418 Z"/>
+    <path d="M 442 63 H 448 V 74 H 440 V 63 Z M 442 62 H 446 V 64 H 442 Z"/>
+    <path d="M 456 62 H 462 L 465 65 V 74 H 456 Z M 459 68 L 458 69.5 L 459 71 M 462 68 L 463 69.5 L 462 71"/>
+    <path d="M 480 64 V 64.2 M 480 68.4 V 68.6 M 480 72.8 V 73" stroke-width="1.8"/>
+  </g>
+  <line x1="31" y1="79.5" x2="494" y2="79.5" stroke="#ececeb"/>
+
+  <!-- Toolbar: undo, redo; bold, italic, strikethrough, highlight, code; heading, lists, checklist, quote, table; note link, web link; comment. -->
+  <g stroke="#626366" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 44 92 Q 44 86 50 86 Q 55 86 55 91 M 44 92 L 42 89 M 44 92 L 47 90"/>
+    <path d="M 73 92 Q 73 86 67 86 Q 62 86 62 91 M 73 92 L 75 89 M 73 92 L 70 90" stroke="#a3a4a6"/>
+  </g>
+  <line x1="83.5" y1="84" x2="83.5" y2="96" stroke="#dbdbd7"/>
+  <g font-size="11" fill="#626366" text-anchor="middle">
+    <text x="94" y="94" font-weight="700">B</text>
+    <text x="110" y="94" font-style="italic" font-family="Georgia, serif">I</text>
+    <text x="125" y="94" text-decoration="line-through">S</text>
+  </g>
+  <g stroke="#626366" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 137 92 L 143 85 L 146 88 L 139 94 Z"/>
+    <path d="M 152 89 L 154 91 L 156 89"/>
+    <path d="M 165 87 L 162 90 L 165 93 M 171 87 L 174 90 L 171 93"/>
+  </g>
+  <rect x="136" y="96" width="10" height="2" fill="#e3b93a"/>
+  <line x1="181.5" y1="84" x2="181.5" y2="96" stroke="#dbdbd7"/>
+  <text x="192" y="94" font-size="11" font-weight="600" fill="#626366" text-anchor="middle">H</text>
+  <g stroke="#626366" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 205 86 H 206 M 205 90 H 206 M 205 94 H 206 M 209 86 H 215 M 209 90 H 215 M 209 94 H 215"/>
+    <path d="M 225 86 H 231 M 225 90 H 231 M 225 94 H 231"/>
+    <rect x="238" y="85" width="4" height="4" rx="0.5"/>
+    <path d="M 245 87 H 251 M 238 93 L 239.5 94.5 L 242 92 M 245 93 H 251"/>
+    <path d="M 259 89 Q 259 86 262 86 M 259 89 V 93 H 262 V 89 H 259 M 265 89 Q 265 86 268 86 M 265 89 V 93 H 268 V 89 H 265"/>
+    <path d="M 273 89 L 275 91 L 277 89"/>
+  </g>
+  <g font-size="5" fill="#626366"><text x="220" y="88">1</text><text x="220" y="92">2</text><text x="220" y="96">3</text></g>
+  <g stroke="#626366" stroke-width="1.1" fill="none">
+    <rect x="284" y="85" width="10" height="10" rx="1"/>
+    <path d="M 284 88.5 H 294 M 284 91.5 H 294 M 289 85 V 95"/>
+  </g>
+  <line x1="303.5" y1="84" x2="303.5" y2="96" stroke="#dbdbd7"/>
+  <g stroke="#626366" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 312 85 H 318 L 321 88 V 95 H 312 Z M 315 91 H 318 M 317 89 L 319 91 L 317 93"/>
+    <path d="M 333 88 L 335 86 Q 337 84 339 86 Q 341 88 339 90 L 337 92 M 333 92 L 331 94 Q 329 96 327 94 Q 325 92 327 90 L 329 88 M 331 91 L 335 87"/>
+  </g>
+  <line x1="347.5" y1="84" x2="347.5" y2="96" stroke="#dbdbd7"/>
+  <g stroke="#626366" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 355 85 H 367 V 93 H 360 L 357 96 V 93 H 355 Z M 361 87 V 91 M 359 89 H 363"/>
+  </g>
+  <line x1="31" y1="101.5" x2="494" y2="101.5" stroke="#ececeb"/>
+
+  <!-- Title and properties, as Obsidian orders them. -->
+  <text x="64" y="128" font-size="18" font-weight="700" fill="#2b2c2e">Community Garden</text>
+  <g font-size="7.5" fill="#626366" letter-spacing="0.06em">
+    <text x="64" y="148">TYPE</text>
+    <text x="196" y="148">STATUS</text>
+    <text x="330" y="148">OWNER</text>
+    <text x="64" y="164">START-DATE</text>
+    <text x="196" y="164">TAGS</text>
+  </g>
+  <g font-size="9" fill="#2b2c2e">
+    <text x="118" y="148">project</text>
+    <text x="246" y="148">In progress</text>
+    <text x="118" y="164">2026-09-01</text>
+  </g>
+  <text x="372" y="148" font-size="9" fill="#4a5f86" text-decoration="underline">Sam Lee</text>
+  <rect x="244" y="156" width="36" height="12" rx="6" fill="#e2e2de"/>
+  <text x="262" y="165" font-size="8" fill="#2b2c2e" text-anchor="middle">garden</text>
+  <line x1="64" y1="175.5" x2="456" y2="175.5" stroke="#ececeb"/>
+
+  <!-- A summary callout, drawn in the theme's callout colour. -->
+  <rect x="64" y="183" width="392" height="34" rx="4" fill="#e3f5f5"/>
+  <g fill="none" stroke="#0f7f7c" stroke-width="1"><rect x="72" y="188" width="7" height="9" rx="1"/><path d="M 74 191 H 77 M 74 194 H 77"/></g>
+  <text x="84" y="196" font-size="9.5" font-weight="600" fill="#0f7f7c">Bottom line</text>
+  <text x="72" y="210" font-size="9.5" fill="#2b2c2e">Two of three beds are planted. The water tank arrives on <tspan font-weight="700">24 October</tspan>.</text>
+
+  <!-- A section as a card. The sparkle marks a section Claude maintains; dated entries form a timeline. -->
+  <rect x="64" y="225" width="392" height="113" rx="10" fill="#fafaf9" stroke="#dbdbd7"/>
+  <text x="78" y="245" font-size="13" font-weight="700" fill="#2b2c2e">Updates</text>
+  <path d="M 440 234.5 Q 441.1 238.9 445.5 240 Q 441.1 241.1 440 245.5 Q 438.9 241.1 434.5 240 Q 438.9 238.9 440 234.5 Z" fill="none" stroke="#7852ee" stroke-width="1.1" stroke-linejoin="round"/>
+  <circle cx="83" cy="262" r="3" fill="#4a5f86"/>
+  <text x="92" y="265" font-size="9" font-weight="600" fill="#626366">2026-10-12 - <tspan fill="#4a5f86" text-decoration="underline">Work day</tspan></text>
+  <line x1="84" y1="272" x2="84" y2="300" stroke="#dbdbd7" stroke-width="2"/>
+  <g font-size="9.5" fill="#2b2c2e">
+    <text x="94" y="283">Planted the garlic in the north bed and mended the fence</text>
+    <text x="94" y="296">by the gate. Claude drafted the rota for November.</text>
+  </g>
+  <circle cx="83" cy="311" r="3" fill="#4a5f86"/>
+  <text x="92" y="314" font-size="9" font-weight="600" fill="#626366">2026-10-05 - <tspan fill="#4a5f86" text-decoration="underline">Committee meeting</tspan></text>
+  <line x1="84" y1="320" x2="84" y2="334" stroke="#dbdbd7" stroke-width="2"/>
+  <text x="94" y="331" font-size="9.5" fill="#2b2c2e">Agreed a watering rota for the dry weeks.</text>
+
+  <!-- Window outline last, so the border stays crisp over the fills. -->
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="none" stroke="#c4c5c1"/>
+</svg>
