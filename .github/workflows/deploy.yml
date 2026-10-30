@@ -48,7 +48,7 @@ jobs:
       - name: Check that the site is ready to go live
         run: npm run check:launch
       - name: Install, build, and upload your site output
-        uses: withastro/action@3eafd002e65cc31b4f0eae0bb05450d521562247 # v6
+        uses: withastro/action@a8b97df764791eb61fbf3338ef713b0e61ae05c5 # v6
         with:
           # No content cache from an earlier run: Astro keeps a cached entry while its file is unchanged, even after the schema in
           # src/content/schemas.ts changes, so a restored cache could publish entries the tests above never saw. The site builds in seconds.
