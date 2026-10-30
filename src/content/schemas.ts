@@ -92,6 +92,18 @@ const diagramField = z.object({
   caption: filledText('diagram', 'caption'),
 });
 
+// A view of the project's interface, drawn from its code: an SVG file in src/assets/diagrams and the one line shown under it.
+const viewField = z.object({
+  file: z.string().regex(DIAGRAM_FILE, 'Name the view by its file in src/assets/diagrams: lower-case letters, digits and hyphens, ending in .svg.'),
+  caption: filledText('view', 'caption'),
+});
+
+// A warning the reader must see before anything else on the project page, such as the need for consent before recording.
+const noticeField = z.object({
+  title: filledText('notice', 'title'),
+  text: filledText('notice', 'text'),
+});
+
 // A paper a project builds on: its title and address, who wrote it, where and when it appeared, and what the project takes from it.
 // The address is required, so a reader can always look the paper up.
 const referenceField = z.object({
@@ -147,7 +159,9 @@ export const projectSchema = z
     repo: webUrl.optional(),
     private: z.boolean().default(false),
     colab: webUrl.optional(),
+    notice: noticeField.optional(),
     diagram: diagramField.optional(),
+    views: z.array(viewField).default([]),
     references: z.array(referenceField).default([]),
     draft: z.boolean().default(false),
     updates: z.array(z.object({ date: dateField, text: z.string() })).default([]),

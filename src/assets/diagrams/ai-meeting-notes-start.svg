@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="amn-start-title amn-start-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="amn-start-title">Choosing the meeting type</title>
+  <desc id="amn-start-desc">A drawing of the quick switcher that opens when a recording starts. A search field reads "Select meeting type...". Below it are the default meeting types One to One, Standup, Weekly Sync, Design Review, Interview and All Hands, then a "Presets" separator with one saved preset, then "+ Add new type...". The footer shows that Esc keeps the default name.</desc>
+
+  <!-- Window: drawn from the plugin's code, with invented example names. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
+  <text x="18" y="24" font-size="11" fill="#626366">Obsidian</text>
+  <g stroke="#8b8c8f" stroke-width="1.2" fill="none">
+    <path d="M 438 20 H 446"/>
+    <rect x="456" y="16" width="8" height="8"/>
+    <path d="M 474 16 L 482 24 M 482 16 L 474 24"/>
+  </g>
+
+  <!-- The note underneath, faded behind the switcher. -->
+  <path d="M 6 35 H 30 V 344 H 14 Q 6 344 6 336 Z" fill="#f6f6f6"/>
+  <g fill="#ececeb">
+    <rect x="48" y="56" width="180" height="10" rx="3"/>
+    <rect x="48" y="80" width="400" height="7" rx="3"/>
+    <rect x="48" y="96" width="360" height="7" rx="3"/>
+    <rect x="48" y="112" width="380" height="7" rx="3"/>
+    <rect x="48" y="136" width="300" height="7" rx="3"/>
+  </g>
+  <path d="M 6 35 H 494 V 336 Q 494 344 486 344 H 14 Q 6 344 6 336 Z" fill="#2b2c2e" fill-opacity="0.08"/>
+  <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
+
+  <!-- The meeting-type switcher. -->
+  <rect x="80" y="56" width="340" height="280" rx="8" fill="#ffffff" stroke="#c4c5c1"/>
+  <text x="96" y="84" font-size="13" fill="#a3a4a6">Select meeting type...</text>
+  <line x1="80" y1="98.5" x2="420" y2="98.5" stroke="#ececeb"/>
+  <rect x="88" y="106" width="324" height="22" rx="4" fill="#efefed"/>
+  <g font-size="12" fill="#2b2c2e">
+    <text x="100" y="121">One to One</text>
+    <text x="100" y="143">Standup</text>
+    <text x="100" y="165">Weekly Sync</text>
+    <text x="100" y="187">Design Review</text>
+    <text x="100" y="209">Interview</text>
+    <text x="100" y="231">All Hands</text>
+    <text x="100" y="253" fill="#a3a4a6">--- Presets ---</text>
+    <text x="100" y="275">Team weekly</text>
+    <text x="100" y="297" fill="#626366">+ Add new type...</text>
+  </g>
+  <line x1="80" y1="310.5" x2="420" y2="310.5" stroke="#ececeb"/>
+  <rect x="96" y="317" width="26" height="14" rx="3" fill="#ffffff" stroke="#c4c5c1"/>
+  <text x="109" y="327.5" font-size="9" fill="#626366" text-anchor="middle">Esc</text>
+  <text x="128" y="328" font-size="10" fill="#626366">keep default name</text>
+
+  <!-- Window outline last, so the border stays crisp over the fills. -->
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="none" stroke="#c4c5c1"/>
+</svg>

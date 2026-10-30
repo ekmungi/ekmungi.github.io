@@ -52,6 +52,35 @@ test('a project diagram names an SVG file in src/assets/diagrams and needs a cap
   }
 });
 
+test('a project notice needs a title and a text, and says which one is missing', () => {
+  const notice = { title: 'Record only with consent', text: 'Ask everyone first.' };
+  assert.deepEqual(projectSchema.parse({ ...project, notice }).notice, notice);
+  assert.equal(projectSchema.parse(project).notice, undefined);
+  for (const field of ['title', 'text']) {
+    for (const value of BLANK) {
+      const result = projectSchema.safeParse({ ...project, notice: { ...notice, [field]: value } });
+      assert.equal(result.success, false, `${field}: ${JSON.stringify(value)}`);
+      assert.match(messages(result), new RegExp(`notice needs a ${field}`), field);
+    }
+  }
+});
+
+test('a project view names an SVG file in src/assets/diagrams and needs a caption, and a project without views has none', () => {
+  const view = { file: 'settings-view.svg', caption: 'The settings tab.' };
+  assert.deepEqual(projectSchema.parse({ ...project, views: [view] }).views, [view]);
+  assert.deepEqual(projectSchema.parse(project).views, []);
+  for (const file of ['Settings.svg', '../x.svg', 'x.png', '']) {
+    const result = projectSchema.safeParse({ ...project, views: [{ file, caption: 'c' }] });
+    assert.equal(result.success, false, JSON.stringify(file));
+    assert.match(messages(result), /src\/assets\/diagrams/, JSON.stringify(file));
+  }
+  for (const caption of BLANK) {
+    const result = projectSchema.safeParse({ ...project, views: [{ file: 'x.svg', caption }] });
+    assert.equal(result.success, false, JSON.stringify(caption));
+    assert.match(messages(result), /view needs a caption/);
+  }
+});
+
 test('a project reference has a title, a web address, authors, a source and a use, and a project without references has none', () => {
   const reference = { title: 'A paper', url: 'https://doi.org/10.1/x', authors: 'A and B', source: 'SIGIR 2009', use: 'What it is used for.' };
   assert.deepEqual(projectSchema.parse({ ...project, references: [reference] }).references, [reference]);

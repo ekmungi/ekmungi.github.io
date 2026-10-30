@@ -106,13 +106,14 @@ test('a private project links nowhere outside the site and does not mention GitH
   }
 });
 
-test('a project page has its text frame, beside it an Updates frame with the dated updates newest first when it has any, below them a How it works frame when it has a diagram, and last a References frame when it has references', () => {
+test('a project page has its text frame, beside it an Updates frame with the dated updates newest first when it has any, below them a What it looks like frame when it has views and a How it works frame when it has a diagram, and last a References frame when it has references', () => {
   for (const { outDir, projects } of BUILDS) {
     for (const { id, data } of projects) {
       const route = `/projects/${id}/`;
       const updates = [...(data.updates ?? [])].sort((a, b) => String(b.date).localeCompare(String(a.date)));
       const expected = [
         ...(updates.length > 0 ? [['', 8], ['Updates', 4]] : [['', 12]]),
+        ...((data.views ?? []).length > 0 ? [['What it looks like', 12]] : []),
         ...(data.diagram ? [['How it works', 12]] : []),
         ...((data.references ?? []).length > 0 ? [['References', 12]] : []),
       ];
@@ -140,6 +141,45 @@ test('a project diagram is drawn inline as an accessible image, named by its own
       assert.deepEqual(names.map((name) => svg.querySelector(`[id="${name}"]`)?.tagName.toLowerCase()), ['title', 'desc'], `${outDir} ${id}`);
       for (const name of names) assert.notEqual(tidy(svg.querySelector(`[id="${name}"]`).text), '', `${outDir} ${id}: ${name} is filled in`);
       assert.equal(tidy(frame.querySelector('figure figcaption').text), tidy(data.diagram.caption), `${outDir} ${id}`);
+    }
+  }
+});
+
+test('a project with a notice shows it first, above every frame, as a warning box named by its own heading', () => {
+  for (const { outDir, projects } of BUILDS) {
+    for (const { id, data } of projects) {
+      const grid = loadPage(outDir, `/projects/${id}/`).querySelector('main .grid');
+      const notice = grid.querySelector('aside.notice');
+      if (!data.notice) {
+        assert.equal(notice, null, `${outDir} ${id}: no notice`);
+        continue;
+      }
+      assert.ok(notice, `${outDir} ${id}: the notice is shown`);
+      assert.equal(grid.childNodes.filter((node) => node.nodeType === 1)[0], notice, `${outDir} ${id}: the notice comes first`);
+      const heading = notice.querySelector('h2');
+      assert.equal(notice.getAttribute('aria-labelledby'), heading.getAttribute('id'), `${outDir} ${id}`);
+      assert.equal(tidy(heading.text), tidy(data.notice.title), `${outDir} ${id}`);
+      assert.equal(tidy(notice.querySelector('p').text), tidy(data.notice.text), `${outDir} ${id}`);
+    }
+  }
+});
+
+test('each view of a project interface is drawn inline as an accessible image, in file order, with its caption below', () => {
+  for (const { outDir, projects } of BUILDS) {
+    for (const { id, data } of projects.filter((project) => (project.data.views ?? []).length > 0)) {
+      const frame = loadPage(outDir, `/projects/${id}/`)
+        .querySelectorAll('main .frame')
+        .find((candidate) => titleOf(candidate) === 'What it looks like');
+      const figures = frame.querySelectorAll('figure.view');
+      assert.equal(figures.length, data.views.length, `${outDir} ${id}`);
+      figures.forEach((figure, index) => {
+        const svg = figure.querySelector('svg');
+        assert.ok(svg, `${outDir} ${id}: view ${index + 1} is inline SVG`);
+        assert.equal(svg.getAttribute('role'), 'img', `${outDir} ${id}`);
+        const names = (svg.getAttribute('aria-labelledby') ?? '').split(/\s+/).filter(Boolean);
+        assert.deepEqual(names.map((name) => svg.querySelector(`[id="${name}"]`)?.tagName.toLowerCase()), ['title', 'desc'], `${outDir} ${id}`);
+        assert.equal(tidy(figure.querySelector('figcaption').text), tidy(data.views[index].caption), `${outDir} ${id}`);
+      });
     }
   }
 });

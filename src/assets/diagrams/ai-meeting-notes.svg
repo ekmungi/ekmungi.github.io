@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 416" style="min-width:960px" role="img" aria-labelledby="meeting-notes-title meeting-notes-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="meeting-notes-title">How AI Meeting Notes works</title>
+  <desc id="meeting-notes-desc">Inside Obsidian, the plugin captures the microphone and the system sound and mixes them into 16 kHz frames in an audio pipeline, which also feeds a silence monitor and an optional WAV file. A streaming client sends the frames with a temporary token to AssemblyAI's cloud speech recognition, which returns speaker-labelled turns over the same connection. The client writes them into a transcript file, which the meeting's notes file embeds.</desc>
+  <defs>
+    <marker id="meeting-notes-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto-start-reverse">
+      <polygon points="0 0, 8 3, 0 6" fill="#8b8c8f"/>
+    </marker>
+    <marker id="meeting-notes-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4a5f86"/>
+    </marker>
+  </defs>
+
+  <!-- Paper: the frame colour, so label masks match what sits behind them. -->
+  <rect width="960" height="416" fill="#f8f8f7"/>
+
+  <!-- Zones: what runs on the computer, and what runs in AssemblyAI's cloud. -->
+  <rect x="16" y="16" width="704" height="384" rx="8" fill="#3a3b3d" fill-opacity="0.02" stroke="#dbdbd7" stroke-width="1"/>
+  <text x="32" y="38" fill="#626366" font-size="11" font-weight="500" letter-spacing="0.12em">ON YOUR COMPUTER · INSIDE OBSIDIAN</text>
+  <rect x="736" y="16" width="208" height="176" rx="8" fill="#3a3b3d" fill-opacity="0.02" stroke="#dbdbd7" stroke-width="1" stroke-dasharray="5,4"/>
+  <text x="752" y="38" fill="#626366" font-size="11" font-weight="500" letter-spacing="0.12em">ASSEMBLYAI CLOUD</text>
+
+  <!-- Connectors, drawn before the boxes. -->
+  <g fill="none" stroke="#8b8c8f" stroke-width="1.2">
+    <path d="M 208 92 H 271" marker-end="url(#meeting-notes-arrow)"/>
+    <path d="M 448 92 H 511" marker-end="url(#meeting-notes-arrow)"/>
+    <path d="M 389 128 V 183" marker-end="url(#meeting-notes-arrow)"/>
+    <path d="M 331 128 V 148 Q 331 156 323 156 H 128 Q 120 156 120 164 V 183" stroke-dasharray="5,4" marker-end="url(#meeting-notes-arrow)"/>
+    <path d="M 752 104 H 689" marker-end="url(#meeting-notes-arrow)"/>
+    <path d="M 600 128 V 183" marker-end="url(#meeting-notes-arrow)"/>
+    <path d="M 600 257 V 311" marker-start="url(#meeting-notes-arrow)" marker-end="url(#meeting-notes-arrow)"/>
+  </g>
+  <!-- The one place where audio leaves the computer carries the accent. -->
+  <path d="M 688 84 H 751" fill="none" stroke="#4a5f86" stroke-width="1.4" marker-end="url(#meeting-notes-arrow-accent)"/>
+
+  <!-- Connector labels on masks, with a gap to their line. -->
+  <g font-size="11" font-weight="500" letter-spacing="0.06em" fill="#626366">
+    <rect x="454" y="68" width="52" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="480" y="80" text-anchor="middle">FRAMES</text>
+    <rect x="698" y="60" width="44" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="720" y="72" text-anchor="middle" fill="#4a5f86">AUDIO</text>
+    <rect x="696" y="112" width="48" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="720" y="124" text-anchor="middle">TURNS</text>
+    <rect x="608" y="276" width="56" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="612" y="288">LINKED</text>
+    <rect x="136" y="164" width="72" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="140" y="176">OPTIONAL</text>
+  </g>
+
+  <!-- Boxes: opaque fills, so the lines drawn before them stop at their edges. -->
+  <g stroke-width="1">
+    <rect x="32" y="56" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="272" y="56" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="512" y="56" width="176" height="72" rx="6" fill="#eef1f6" stroke="#4a5f86" stroke-width="1.4"/>
+    <rect x="752" y="56" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="32" y="184" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="272" y="184" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="512" y="184" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="512" y="312" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+  </g>
+
+  <!-- Names and sublabels. -->
+  <g text-anchor="middle">
+    <g font-size="15" font-weight="600" fill="#2b2c2e">
+      <text x="120" y="80">Audio sources</text>
+      <text x="360" y="80">Audio pipeline</text>
+      <text x="600" y="80" fill="#4a5f86">Streaming client</text>
+      <text x="840" y="80">Speech recognition</text>
+      <text x="120" y="214">WAV file</text>
+      <text x="360" y="208">Silence monitor</text>
+      <text x="600" y="208">Transcript file</text>
+      <text x="600" y="336">Notes file</text>
+    </g>
+    <g font-size="12" fill="#626366">
+      <text x="120" y="100">microphone</text>
+      <text x="120" y="116">+ system sound (Windows)</text>
+      <text x="360" y="100">mixed to mono, 16 kHz</text>
+      <text x="360" y="116">100 ms frames</text>
+      <text x="600" y="100">temporary token, key terms</text>
+      <text x="600" y="116">15 s reconnect buffer</text>
+      <text x="840" y="100">Universal-Streaming</text>
+      <text x="840" y="116">speaker labels</text>
+      <text x="120" y="234">a local copy of the audio</text>
+      <text x="360" y="228">loudness against a</text>
+      <text x="360" y="244">self-calibrated noise floor</text>
+      <text x="600" y="228">live text, Speaker A / B</text>
+      <text x="600" y="244">corrected at the end</text>
+      <text x="600" y="356">template and attendees,</text>
+      <text x="600" y="372">transcript embedded</text>
+    </g>
+  </g>
+</svg>

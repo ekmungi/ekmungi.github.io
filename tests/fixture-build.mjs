@@ -57,7 +57,8 @@ export function buildFixture(name, { drafts = false } = {}) {
   const env = { ...process.env, SITE_CONTENT_DIR: `./${FIXTURE_ROOT}/${name}/content`, SITE_PUBLIC_DIR: `./${FIXTURE_ROOT}/${name}/public` };
   if (drafts) env.INCLUDE_DRAFTS = '1';
   else delete env.INCLUDE_DRAFTS;
-  const build = spawnSync(process.execPath, [join(REPO_ROOT, 'node_modules', 'astro', 'bin', 'astro.mjs'), 'build', '--outDir', fixtureOut(name)], {
+  // --force clears Astro's content cache, which the fixture builds share: an entry cached by one fixture never leaks into the next.
+  const build = spawnSync(process.execPath, [join(REPO_ROOT, 'node_modules', 'astro', 'bin', 'astro.mjs'), 'build', '--force', '--outDir', fixtureOut(name)], {
     cwd: REPO_ROOT,
     env,
     encoding: 'utf8',

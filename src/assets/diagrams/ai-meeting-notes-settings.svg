@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="amn-settings-title amn-settings-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="amn-settings-title">The top of the plugin's settings</title>
+  <desc id="amn-settings-desc">A drawing of the top of the AI Meeting Notes settings tab. A shaded box holds the recording disclaimer, which says that recording may require explicit consent from all participants and that the user is solely responsible for complying with local recording consent laws, followed by the toggle "I understand and accept responsibility", switched on. Below it, under a Transcription heading, are the AssemblyAI API key as a masked field, the transcription model set to "English - $0.15/hr (default)" and endpointing set to "Balanced (recommended)".</desc>
+
+  <!-- Window: drawn from the plugin's settings code. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
+  <text x="18" y="24" font-size="11" fill="#626366">Settings</text>
+  <g stroke="#8b8c8f" stroke-width="1.2" fill="none">
+    <path d="M 438 20 H 446"/>
+    <rect x="456" y="16" width="8" height="8"/>
+    <path d="M 474 16 L 482 24 M 482 16 L 474 24"/>
+  </g>
+  <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
+
+  <!-- Settings sidebar, with the plugin's tab selected. -->
+  <path d="M 6 35 H 126 V 344 H 14 Q 6 344 6 336 Z" fill="#f6f6f6"/>
+  <line x1="126.5" y1="35" x2="126.5" y2="344" stroke="#dbdbd7"/>
+  <g font-size="11">
+    <text x="18" y="56" font-size="10" font-weight="600" fill="#a3a4a6">Options</text>
+    <text x="18" y="76" fill="#2b2c2e">General</text>
+    <text x="18" y="94" fill="#2b2c2e">Editor</text>
+    <text x="18" y="112" fill="#2b2c2e">Appearance</text>
+    <text x="18" y="140" font-size="10" font-weight="600" fill="#a3a4a6">Community plugins</text>
+    <rect x="12" y="149" width="108" height="20" rx="4" fill="#e2e2de"/>
+    <text x="18" y="163" fill="#2b2c2e">AI Meeting Notes</text>
+  </g>
+
+  <text x="142" y="60" font-size="15" font-weight="600" fill="#2b2c2e">AI Meeting Notes</text>
+
+  <!-- The recording disclaimer, word for word, and the toggle that must be on before the plugin records. -->
+  <rect x="142" y="70" width="340" height="112" rx="6" fill="#f6f6f6" stroke="#e3e3e0"/>
+  <g font-size="10" fill="#626366">
+    <text x="152" y="86">This plugin records audio from your microphone and system</text>
+    <text x="152" y="99">speakers, which may capture the voices of other meeting</text>
+    <text x="152" y="112">participants. Recording meetings may require explicit consent</text>
+    <text x="152" y="125">from all participants under applicable laws. You are solely</text>
+    <text x="152" y="138">responsible for complying with local recording consent laws.</text>
+  </g>
+  <line x1="152" y1="146.5" x2="472" y2="146.5" stroke="#e3e3e0"/>
+  <text x="152" y="161" font-size="11" font-weight="500" fill="#2b2c2e">I understand and accept responsibility</text>
+  <text x="152" y="174" font-size="9.5" fill="#626366">You must accept this disclaimer before recording…</text>
+  <rect x="440" y="155" width="30" height="17" rx="8.5" fill="#4a5f86"/>
+  <circle cx="461.5" cy="163.5" r="6.5" fill="#ffffff"/>
+
+  <!-- Transcription settings. -->
+  <text x="142" y="204" font-size="13" font-weight="600" fill="#2b2c2e">Transcription</text>
+  <g font-size="12" font-weight="500" fill="#2b2c2e">
+    <text x="142" y="229">AssemblyAI API Key</text>
+    <text x="142" y="269">Transcription model</text>
+    <text x="142" y="309">Endpointing</text>
+  </g>
+  <g font-size="10" fill="#626366">
+    <text x="142" y="243">Your API key for cloud transcription…</text>
+    <text x="142" y="283">Higher tiers cost more per hour…</text>
+    <text x="142" y="323">Trade-off between how fast text…</text>
+  </g>
+  <g stroke="#ececeb">
+    <line x1="142" y1="252.5" x2="482" y2="252.5"/>
+    <line x1="142" y1="292.5" x2="482" y2="292.5"/>
+  </g>
+  <rect x="372" y="220" width="110" height="22" rx="4" fill="#ffffff" stroke="#c4c5c1"/>
+  <text x="380" y="235" font-size="12" fill="#626366">••••••••••</text>
+  <rect x="326" y="260" width="156" height="22" rx="4" fill="#ffffff" stroke="#c4c5c1"/>
+  <text x="332" y="275" font-size="10" fill="#2b2c2e">English - $0.15/hr (default)</text>
+  <rect x="336" y="300" width="146" height="22" rx="4" fill="#ffffff" stroke="#c4c5c1"/>
+  <text x="342" y="315" font-size="10" fill="#2b2c2e">Balanced (recommended)</text>
+  <g fill="none" stroke="#626366" stroke-width="1.2">
+    <path d="M 470 269 L 474 273 L 478 269"/>
+    <path d="M 470 309 L 474 313 L 478 309"/>
+  </g>
+
+  <!-- Window outline last, so the border stays crisp over the fills. -->
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="none" stroke="#c4c5c1"/>
+</svg>

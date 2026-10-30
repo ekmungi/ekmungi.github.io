@@ -18,3 +18,9 @@ test('astro build fails on a project whose diagram file does not exist, and the 
   assert.notEqual(status, 0, 'the build failed');
   assert.match(output, /fixture-missing\.svg/);
 });
+
+test('astro build fails on a project whose view file does not exist, and the message names the file', () => {
+  const { status, output } = JSON.parse(readFileSync(join(REPO_ROOT, FIXTURE_ROOT, 'missing-view', 'result.json'), 'utf8'));
+  assert.notEqual(status, 0, 'the build failed');
+  assert.match(output, /fixture-missing-view\.svg/);
+});

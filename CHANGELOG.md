@@ -2,6 +2,23 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.4.0] - 2026-10-30
+
+### Added
+
+- A project page can show views of the project's interface in a "What it looks like" frame, between the text and the "How it works" diagram. The project lists SVG files from `src/assets/diagrams/` under `views:`, each with a caption, and the page shows them two to a row on a wide screen. A view the folder does not hold stops the build.
+- A project page can open with a warning box above everything else, set under `notice:` with a `title` and a `text`. The box uses three new colour tokens (`--warn-bg`, `--warn-rule`, `--warn-ink`), kept for warnings alone, and its text meets the same 4.5 to 1 contrast as the rest of the site.
+- The AI Meeting Notes page opens with a warning box: record only with the consent of everyone in the meeting, and no liability is accepted for recordings made without it.
+- The AI Meeting Notes page has a new text: the problem, a "How it is built" section, and what it does. It also has four views of the plugin drawn from its code with invented names, a diagram that shows where audio leaves the computer, and five references to AssemblyAI's documentation and articles and to the W3C Web Audio API. The old summary said the plugin writes an AI summary, which it does not, so the summary is corrected.
+
+### Changed
+
+- The Obsidian Database project page is removed.
+
+### Fixed
+
+- Every build, the dev server and the fixture builds now clear Astro's content cache (`--force`), so a change to a content schema reaches every entry. Before this, entries from unchanged files kept their old shape, and the local build failed the same way the first 0.3.0 deploy did.
+
 ## [0.3.1] - 2026-10-30
 
 ### Changed

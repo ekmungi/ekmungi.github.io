@@ -16,4 +16,9 @@
   --muted: #626366;
   /* The single accent: links and the hovered or current item. */
   --accent: #4a5f86;
+  /* A warning that must not be missed, such as the recording-consent notice: a pale amber box, an amber rule and dark amber
+     text, which reaches about 6.6 to 1 contrast on the box. Used for nothing else. */
+  --warn-bg: #fbf1df;
+  --warn-rule: #d9a441;
+  --warn-ink: #7a4a00;
 }

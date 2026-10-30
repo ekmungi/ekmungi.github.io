@@ -170,4 +170,20 @@ export const FIXTURES = {
       ]),
     },
   },
+  // A project that names a view file which does not exist: the build must refuse it and name the file.
+  'missing-view': {
+    drafts: false,
+    expect: 'fail',
+    files: {
+      'projects/fixture-no-view.md': project([
+        'title: "Fixture tool"',
+        'kind: software',
+        'summary: "Fixture summary."',
+        'status: "Planned"',
+        'views:',
+        '  - file: "fixture-missing-view.svg"',
+        '    caption: "Fixture caption."',
+      ]),
+    },
+  },
 };

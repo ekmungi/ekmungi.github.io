@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="amn-recording-title amn-recording-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="amn-recording-title">A meeting in progress</title>
+  <desc id="amn-recording-desc">A drawing of Obsidian during a recording. The notes file is open, with properties for type, date, start time, transcript file and attendees, then Notes, Summary and Action Items headings. Below them the embedded transcript fills in, starting with a bold 00:00:00 marker and bold labels for Speaker A and Speaker B within one paragraph. The ribbon's microphone icon is red, and the status bar shows a red dot and the elapsed time 12:34.</desc>
+
+  <!-- Window: drawn from the plugin's code, with invented example content. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
+  <text x="18" y="24" font-size="11" fill="#626366">20261030_14-30 - Weekly Sync</text>
+  <g stroke="#8b8c8f" stroke-width="1.2" fill="none">
+    <path d="M 438 20 H 446"/>
+    <rect x="456" y="16" width="8" height="8"/>
+    <path d="M 474 16 L 482 24 M 482 16 L 474 24"/>
+  </g>
+  <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
+
+  <!-- Ribbon, with the plugin's microphone icon in the recording colour. -->
+  <path d="M 6 35 H 30 V 326 H 6 Z" fill="#f6f6f6"/>
+  <line x1="30.5" y1="35" x2="30.5" y2="326" stroke="#dbdbd7"/>
+  <g fill="none" stroke="#e93147" stroke-width="1.4" stroke-linecap="round">
+    <rect x="14" y="46" width="8" height="12" rx="4"/>
+    <path d="M 11 54 Q 11 62 18 62 Q 25 62 25 54 M 18 62 V 66"/>
+  </g>
+  <g fill="#dcdcd9">
+    <rect x="12" y="80" width="12" height="12" rx="3"/>
+    <rect x="12" y="102" width="12" height="12" rx="3"/>
+  </g>
+
+  <!-- The plugin opens only the notes file. -->
+  <rect x="31" y="35" width="463" height="22" fill="#f6f6f6"/>
+  <rect x="35" y="39" width="190" height="18" rx="4" fill="#ffffff"/>
+  <text x="43" y="52" font-size="10" fill="#2b2c2e">20261030_14-30 - Weekly Sync</text>
+  <line x1="31" y1="57.5" x2="494" y2="57.5" stroke="#dbdbd7"/>
+
+  <!-- Notes file: the frontmatter the plugin writes, then the default headings. -->
+  <text x="48" y="74" font-size="10" font-weight="600" fill="#a3a4a6">Properties</text>
+  <g font-size="10.5">
+    <g fill="#626366">
+      <text x="52" y="92">type</text>
+      <text x="52" y="108">date</text>
+      <text x="52" y="124">start-time</text>
+      <text x="52" y="140">transcript-file</text>
+      <text x="52" y="156">attendees</text>
+    </g>
+    <rect x="136" y="82" width="52" height="14" rx="7" fill="#efefed"/>
+    <text x="162" y="92.5" text-anchor="middle" fill="#2b2c2e">meeting</text>
+    <text x="140" y="108" fill="#2b2c2e">2026-10-30</text>
+    <text x="140" y="124" fill="#2b2c2e">14:30:00</text>
+    <text x="140" y="140" fill="#4a5f86">20261030_14-30 - Weekly Sync_transcript</text>
+    <text x="140" y="156" fill="#4a5f86">Alex Rivera</text>
+    <text x="206" y="156" fill="#4a5f86">Priya Nair</text>
+  </g>
+  <line x1="48" y1="166.5" x2="478" y2="166.5" stroke="#ececeb"/>
+  <g fill="#2b2c2e" font-weight="600">
+    <text x="48" y="188" font-size="14">Notes</text>
+    <text x="48" y="212" font-size="14">Summary</text>
+    <text x="48" y="232" font-size="12.5">Action Items</text>
+  </g>
+  <text x="54" y="248" font-size="12" fill="#626366">•</text>
+
+  <!-- The embedded transcript: a timestamp marker every five minutes, a new paragraph every two, a label only when the speaker changes. -->
+  <line x1="48" y1="256" x2="48" y2="322" stroke="#dbdbd7" stroke-width="2"/>
+  <text x="58" y="272" font-size="12.5" font-weight="600" fill="#2b2c2e">Transcript</text>
+  <g font-size="10.5" fill="#2b2c2e">
+    <text x="58" y="288" font-weight="600">[00:00:00]</text>
+    <text x="58" y="303"><tspan font-weight="600">[Speaker A]</tspan> Thanks for joining. Let's start with the release plan. <tspan font-weight="600">[Speaker B]</tspan></text>
+    <text x="58" y="317">The build is ready. Two tests still fail on Windows.</text>
+  </g>
+
+  <!-- Status bar: the red dot and the elapsed time. -->
+  <path d="M 6 326 H 494 V 336 Q 494 344 486 344 H 14 Q 6 344 6 336 Z" fill="#f6f6f6"/>
+  <line x1="6" y1="326.5" x2="494" y2="326.5" stroke="#dbdbd7"/>
+  <circle cx="440" cy="335" r="4" fill="#e93147"/>
+  <text x="450" y="339" font-size="10.5" fill="#2b2c2e">12:34</text>
+
+  <!-- Window outline last, so the border stays crisp over the fills. -->
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="none" stroke="#c4c5c1"/>
+</svg>

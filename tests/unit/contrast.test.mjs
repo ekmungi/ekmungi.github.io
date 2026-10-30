@@ -15,6 +15,10 @@ const AGREED = {
   '--ink-strong': '#2b2c2e',
   '--muted': '#626366',
   '--accent': '#4a5f86',
+  // The warning box, added on 2026-10-30 for the recording-consent notice on the AI Meeting Notes page.
+  '--warn-bg': '#fbf1df',
+  '--warn-rule': '#d9a441',
+  '--warn-ink': '#7a4a00',
 };
 
 /**
@@ -69,6 +73,13 @@ test('parseTokens reads hex custom properties and ignores everything else', () =
 test('tokens.css holds exactly the agreed Stone palette', () => {
   assert.deepEqual(tokens, AGREED);
 });
+
+// The warning box's heading and text must be as readable as the rest of the site.
+for (const fg of ['--warn-ink', '--ink-strong']) {
+  test(`${fg} on --warn-bg >= 4.5`, () => {
+    assert.ok(contrast(tokens[fg], tokens['--warn-bg']) >= 4.5, `${fg} ${tokens[fg]} on --warn-bg ${tokens['--warn-bg']}`);
+  });
+}
 
 for (const fg of ['--ink', '--ink-strong', '--muted', '--accent']) {
   for (const bg of ['--bg', '--frame', '--frame-2']) {

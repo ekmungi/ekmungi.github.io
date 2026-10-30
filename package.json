@@ -1,15 +1,15 @@
 {
   "name": "ekmungi-github-io",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "engines": {
     "node": ">=22.22.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "build:test": "cross-env INCLUDE_DRAFTS=1 astro build --outDir dist-test",
+    "dev": "astro dev --force",
+    "build": "astro build --force",
+    "build:test": "cross-env INCLUDE_DRAFTS=1 astro build --force --outDir dist-test",
     "build:fixtures": "node tests/fixtures/build.mjs",
     "test": "npm run build && npm run build:test && npm run build:fixtures && node --test \"tests/unit/**/*.test.mjs\" \"tests/site/**/*.test.mjs\" \"tests/local/**/*.test.mjs\"",
     "test:ci": "npm run build && npm run build:test && npm run build:fixtures && node --test \"tests/unit/**/*.test.mjs\" \"tests/site/**/*.test.mjs\"",

@@ -1,6 +1,8 @@
 ---
-// One project page: title, kind and status, a link to the code or the notebook when there is one, then the text and, when the project has any,
-// a dated list of updates, below them, when the project names one, its "How it works" diagram, and last the papers it builds on.
+// One project page: title, kind and status, a link to the code or the notebook when there is one, a warning box when the project needs one,
+// then the text and, when the project has any,
+// a dated list of updates, below them, when the project has them, views of its interface and its "How it works" diagram, and last the
+// papers it builds on.
 import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import Frame from '../../../components/Frame.astro';
@@ -25,16 +27,27 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, kind, summary, repo, colab, updates, diagram, references } = project.data;
+const { title, kind, summary, repo, colab, updates, notice, diagram, views, references } = project.data;
 const status = statusLabel(project.data);
 const updatesNewestFirst = sortUpdatesDesc(updates);
 // With no updates to show, the text takes the full width: a section that cannot be sourced is left out.
 const hasUpdates = updatesNewestFirst.length > 0;
-// A diagram the project names but the folder does not hold stops the build, rather than leaving an empty frame on the page.
-const diagramSvg = diagram && DIAGRAMS[`../../../assets/diagrams/${diagram.file}`];
-if (diagram && diagramSvg === undefined) {
-  throw new Error(`The project "${project.id}" names the diagram "${diagram.file}", which is not in src/assets/diagrams.`);
+/**
+ * Read one SVG from src/assets/diagrams. A file the project names but the folder does not hold stops the build, rather than
+ * leaving an empty frame on the page.
+ * @param file - the file name the project gives.
+ * @param what - what the file is, for the message ("diagram", "view").
+ * @returns the SVG markup.
+ */
+function svgFor(file: string, what: string): string {
+  const svg = DIAGRAMS[`../../../assets/diagrams/${file}`];
+  if (svg === undefined) {
+    throw new Error(`The project "${project.id}" names the ${what} "${file}", which is not in src/assets/diagrams.`);
+  }
+  return svg;
 }
+const diagramSvg = diagram && svgFor(diagram.file, 'diagram');
+const viewSvgs = views.map((view) => ({ ...view, svg: svgFor(view.file, 'view') }));
 ---
 
 <Base title={`${title} | ${SITE.name}`} page="projects" subpage description={summary}>
@@ -49,6 +62,21 @@ if (diagram && diagramSvg === undefined) {
     }
   </PageHead>
   <div class="grid">
+    {
+      notice && (
+        <aside class="notice s12" aria-labelledby="notice-title">
+          <svg class="notice-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.5 L22.5 21 H1.5 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            <path d="M12 9 V14.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+            <circle cx="12" cy="17.8" r="1.3" fill="currentColor" />
+          </svg>
+          <div>
+            <h2 id="notice-title" class="notice-title">{notice.title}</h2>
+            <p>{notice.text}</p>
+          </div>
+        </aside>
+      )
+    }
     <Frame span={hasUpdates ? 8 : 12}>
       <Content />
     </Frame>
@@ -64,6 +92,22 @@ if (diagram && diagramSvg === undefined) {
               </li>
             ))}
           </ul>
+        </Frame>
+      )
+    }
+    {
+      viewSvgs.length > 0 && (
+        <Frame span={12} title="What it looks like">
+          <div class="views">
+            {viewSvgs.map((view) => (
+              <figure class="view">
+                <div class="diagram-scroll">
+                  <Fragment set:html={view.svg} />
+                </div>
+                <figcaption>{view.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
         </Frame>
       )
     }
@@ -123,6 +167,60 @@ if (diagram && diagramSvg === undefined) {
     color: var(--muted);
   }
 
+  /* The warning box sits above everything else on the page, in the warning colours, with a large warning sign beside it. */
+  .notice {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-rule);
+    border-left-width: 8px;
+    border-radius: 14px;
+    padding: 24px 32px 24px 24px;
+  }
+
+  .notice-icon {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    color: var(--warn-ink);
+  }
+
+  .notice-title {
+    margin: 4px 0 8px;
+    font-size: 23px;
+    color: var(--warn-ink);
+  }
+
+  .notice p {
+    margin: 0;
+    max-width: 860px;
+    font-size: 18px;
+    color: var(--ink-strong);
+  }
+
+  /* On a phone the sign and the padding shrink, so the warning text keeps most of the width. */
+  @media (max-width: 860px) {
+    .notice {
+      gap: 12px;
+      padding: 18px 18px 18px 14px;
+    }
+
+    .notice-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .notice-title {
+      margin-top: 0;
+      font-size: 21px;
+    }
+
+    .notice p {
+      font-size: 17px;
+    }
+  }
+
   /* Lists in the project text keep the same readable line length as its paragraphs (see .frame p in global.css). */
   .grid :global(.frame > ul) {
     max-width: 860px;
@@ -144,10 +242,28 @@ if (diagram && diagramSvg === undefined) {
     height: auto;
   }
 
-  .diagram figcaption {
+  .diagram figcaption,
+  .view figcaption {
     margin-top: 12px;
     font-size: 15px;
     color: var(--muted);
+  }
+
+  /* Views of the interface sit two to a row on a wide screen and one to a row on a narrow one. Each view is drawn 500 pixels wide,
+     so a column is never narrower than that, and a view in a single wide column stops growing at 640 pixels. */
+  .views {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+    gap: 32px;
+  }
+
+  .view {
+    margin: 0;
+  }
+
+  .view .diagram-scroll :global(svg) {
+    max-width: 640px;
+    margin: 0 auto;
   }
 
   /* Each reference: the linked title, then who wrote it and where it appeared, then what the project takes from it. */
