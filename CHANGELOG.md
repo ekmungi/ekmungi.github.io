@@ -2,6 +2,13 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.3.1] - 2026-10-30
+
+### Changed
+
+- The Smart Search page explains its built-in MCP server: how Claude Code reaches the same index as the desktop app, which tools the server offers, and that Smart Search replaced the earlier Smart Search MCP. The MCP specification is added to its references.
+- The separate Smart Search MCP project page is removed. That tool was retired when Smart Search replaced it in March 2026.
+
 ## [0.3.0] - 2026-10-30
 
 ### Added

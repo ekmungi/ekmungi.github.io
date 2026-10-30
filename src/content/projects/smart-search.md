@@ -9,7 +9,8 @@ repo: "https://github.com/ekmungi/smart-search"
 diagram:
   file: "smart-search.svg"
   caption: "Indexing fills two stores from the chosen folders. A search reads both and fuses the matches, then reranks them and returns each passage with its source file."
-# The papers behind the methods and models the code uses, in the order of the diagram. Checked against Crossref and arXiv on 2026-10-30.
+# The papers behind the methods and models the code uses, in the order of the diagram, then the protocol the MCP server follows.
+# Checked against Crossref, arXiv and modelcontextprotocol.io on 2026-10-30.
 references:
   - title: "Arctic-Embed 2.0: Multilingual Retrieval Without Compromise"
     url: "https://arxiv.org/abs/2412.04506"
@@ -41,6 +42,11 @@ references:
     authors: "Carbonell and Goldstein"
     source: "SIGIR 1998"
     use: "Maximal marginal relevance, which moves passages that resemble ones already chosen further down the list."
+  - title: "Model Context Protocol specification, version 2026-07-28"
+    url: "https://modelcontextprotocol.io/specification/2026-07-28"
+    authors: "Model Context Protocol project"
+    source: "Specification, 2026"
+    use: "The open protocol through which Claude Code calls Smart Search's tools."
 ---
 
 ## The problem
@@ -55,6 +61,8 @@ In the default hybrid mode, both indexes answer each query, and their ranked lis
 
 The last two steps reduce redundancy, which matters because an AI assistant that receives several near-identical passages spends its limited context on repetition. Long documents often produce such passages. Maximal marginal relevance (Carbonell and Goldstein, 1998) orders the results greedily, picking at each step the passage that best balances relevance to the query against similarity to the passages already chosen. I weighted relevance at 0.8 and gave any passage from a file already chosen a similarity of at least 0.5, so that repeats, and further passages from the same file, move down the list. A final cap keeps at most two passages from any one file, and every passage that remains carries the path of its source file for the assistant to cite.
 
+AI assistants reach this pipeline through a Model Context Protocol (MCP) server that is part of Smart Search itself. MCP is an open protocol through which an AI application such as Claude Code calls the tools that an outside server provides (Model Context Protocol project, 2026). Smart Search's server is a thin relay. Claude Code starts it as a local process, and the relay passes its tool calls to Smart Search's local HTTP service, the same service behind the desktop app and the REST interface, so the assistant and the desktop app read and change one index. The relay loads no models of its own. Its eleven tools search the index, find notes similar to a given note, read a note, manage the watched folders and report the state of the index. Each result names its source file, with the section heading and page number where they are known, so that the assistant can cite it. Smart Search replaced my earlier Smart Search MCP, which could search only the vectors that the Smart Connections plugin had stored for Obsidian notes, using one small model and no keyword search.
+
 ## What it does
 
 Smart Search is still in development. This page describes version 0.15.1.
@@ -62,5 +70,5 @@ Smart Search is still in development. This page describes version 0.15.1.
 - It indexes the folders I choose, an Obsidian vault included, and checks them for new and changed files each time it starts. Markdown, PDF, Word, PowerPoint, EPUB and HTML files are among the formats it reads.
 - A search looks for meaning and for keywords at the same time, and a reranking step then puts the closest passage first.
 - Every passage is returned with its source file, so an AI assistant can cite it.
-- Claude Code reaches it through an MCP server. I can also use it from a desktop app with a quick-search shortcut, a REST interface or the command line.
+- Claude Code reaches it through a built-in MCP server. I can also use it from a desktop app with a quick-search shortcut, a REST interface or the command line.
 - Indexing and search run on my own computer. The two models download from Hugging Face the first time they are needed.
