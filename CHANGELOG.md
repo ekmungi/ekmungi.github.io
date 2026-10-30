@@ -2,6 +2,13 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.4.1] - 2026-10-30
+
+### Changed
+
+- The YouTube Transcribe page has a new text: the problem, a "How it is built" section, and what it does. It also has four views of the plugin drawn from its code with an invented example video, a diagram of how a link becomes a note, and four references: yt-dlp, YouTube's help page on automatic captions, a Google paper on the speech recognition behind them, and the Claude Code documentation on skills. The page says plainly that transcripts come from YouTube's own captions, so a video without captions cannot be transcribed. An independent review against the code (plugin 0.5.0, engine 0.14.0) corrected nine claims before publishing.
+- The settings views on the AI Meeting Notes and YouTube Transcribe pages show Obsidian's settings as a dialog with a close button only, as Obsidian draws them.
+
 ## [0.4.0] - 2026-10-30
 
 ### Added

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="ytt-settings-title ytt-settings-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="ytt-settings-title">The plugin's settings</title>
+  <desc id="ytt-settings-desc">A drawing of the YouTube Transcribe settings tab. The executable path field holds yt-transcribe. The transcript folder field is empty, with the hint "e.g. Sources/YouTube". The toggle "Open note after transcribing" is on. A note at the bottom says that transcripts are built from YouTube's own captions, so a video without captions cannot be transcribed.</desc>
+
+  <!-- Window: drawn from the plugin's settings code. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
+  <text x="18" y="24" font-size="11" fill="#626366">Settings</text>
+  <!-- Settings open as a dialog inside Obsidian, with a close button only. -->
+  <path d="M 474 16 L 482 24 M 482 16 L 474 24" stroke="#8b8c8f" stroke-width="1.2" fill="none"/>
+  <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
+
+  <!-- Settings sidebar, with the plugin's tab selected. -->
+  <path d="M 6 35 H 126 V 344 H 14 Q 6 344 6 336 Z" fill="#f6f6f6"/>
+  <line x1="126.5" y1="35" x2="126.5" y2="344" stroke="#dbdbd7"/>
+  <g font-size="11">
+    <text x="18" y="56" font-size="10" font-weight="600" fill="#a3a4a6">Options</text>
+    <text x="18" y="76" fill="#2b2c2e">General</text>
+    <text x="18" y="94" fill="#2b2c2e">Editor</text>
+    <text x="18" y="112" fill="#2b2c2e">Appearance</text>
+    <text x="18" y="140" font-size="10" font-weight="600" fill="#a3a4a6">Community plugins</text>
+    <rect x="12" y="149" width="108" height="20" rx="4" fill="#e2e2de"/>
+    <text x="18" y="163" fill="#2b2c2e">YouTube Transcribe</text>
+  </g>
+
+  <!-- The three settings, word for word. -->
+  <g font-size="12" font-weight="500" fill="#2b2c2e">
+    <text x="142" y="68">Executable path</text>
+    <text x="142" y="140">Transcript folder</text>
+    <text x="142" y="226">Open note after transcribing</text>
+  </g>
+  <g font-size="10" fill="#626366">
+    <text x="142" y="83">Path to the yt-transcribe CLI. Use the</text>
+    <text x="142" y="96">bare name if it is on your PATH.</text>
+    <text x="142" y="155">Vault folder to write transcripts into</text>
+    <text x="142" y="168">(type to search). Leave empty to use</text>
+    <text x="142" y="181">the location configured in the CLI.</text>
+    <text x="142" y="241">Open the created transcript note</text>
+    <text x="142" y="254">automatically on success.</text>
+  </g>
+  <g stroke="#ececeb">
+    <line x1="142" y1="112.5" x2="482" y2="112.5"/>
+    <line x1="142" y1="198.5" x2="482" y2="198.5"/>
+    <line x1="142" y1="270.5" x2="482" y2="270.5"/>
+  </g>
+  <rect x="352" y="62" width="130" height="24" rx="4" fill="#ffffff" stroke="#c4c5c1"/>
+  <text x="360" y="78" font-size="11" fill="#2b2c2e">yt-transcribe</text>
+  <rect x="352" y="134" width="130" height="24" rx="4" fill="#ffffff" stroke="#c4c5c1"/>
+  <text x="360" y="150" font-size="11" fill="#a3a4a6">e.g. Sources/YouTube</text>
+  <rect x="452" y="224" width="30" height="17" rx="8.5" fill="#4a5f86"/>
+  <circle cx="473.5" cy="232.5" r="6.5" fill="#ffffff"/>
+
+  <!-- The note under the settings. -->
+  <g font-size="10" fill="#626366">
+    <text x="142" y="294">Transcripts are built from YouTube's own captions, so a video</text>
+    <text x="142" y="307">without captions cannot be transcribed.</text>
+  </g>
+
+  <!-- Window outline last, so the border stays crisp over the fills. -->
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="none" stroke="#c4c5c1"/>
+</svg>

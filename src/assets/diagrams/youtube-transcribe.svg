@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" style="min-width:960px" role="img" aria-labelledby="youtube-transcribe-title youtube-transcribe-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="youtube-transcribe-title">How YouTube Transcribe works</title>
+  <desc id="youtube-transcribe-desc">The Obsidian plugin and a Claude Code skill both run the yt-transcribe engine. For a single video, the engine first checks whether it is already saved in the vault. If it is not, a caption picker uses yt-dlp to request the video's details and caption tracks from YouTube, picks the best track, and passes it to a formatter, which writes a note named after the title and the video ID.</desc>
+  <defs>
+    <marker id="youtube-transcribe-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#8b8c8f"/>
+    </marker>
+    <marker id="youtube-transcribe-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4a5f86"/>
+    </marker>
+  </defs>
+
+  <!-- Paper: the frame colour, so label masks match what sits behind them. -->
+  <rect width="960" height="360" fill="#f8f8f7"/>
+
+  <!-- Zones: what runs on the computer, and what YouTube serves. -->
+  <rect x="16" y="16" width="704" height="328" rx="8" fill="#3a3b3d" fill-opacity="0.02" stroke="#dbdbd7" stroke-width="1"/>
+  <text x="32" y="38" fill="#626366" font-size="11" font-weight="500" letter-spacing="0.12em">ON YOUR COMPUTER</text>
+  <rect x="736" y="80" width="208" height="136" rx="8" fill="#3a3b3d" fill-opacity="0.02" stroke="#dbdbd7" stroke-width="1" stroke-dasharray="5,4"/>
+  <text x="752" y="102" fill="#626366" font-size="11" font-weight="500" letter-spacing="0.12em">YOUTUBE</text>
+
+  <!-- Connectors, drawn before the boxes. -->
+  <g fill="none" stroke="#8b8c8f" stroke-width="1.2">
+    <path d="M 208 92 H 236 Q 244 92 244 100 V 136 Q 244 144 252 144 H 271" marker-end="url(#youtube-transcribe-arrow)"/>
+    <path d="M 208 220 H 236 Q 244 220 244 212 V 176 Q 244 168 252 168 H 271" marker-end="url(#youtube-transcribe-arrow)"/>
+    <path d="M 448 156 H 511" marker-end="url(#youtube-transcribe-arrow)"/>
+    <path d="M 752 166 H 689" marker-end="url(#youtube-transcribe-arrow)"/>
+    <path d="M 600 192 V 247" marker-end="url(#youtube-transcribe-arrow)"/>
+    <path d="M 512 284 H 449" marker-end="url(#youtube-transcribe-arrow)"/>
+    <path d="M 360 192 V 247" stroke-dasharray="5,4" marker-end="url(#youtube-transcribe-arrow)"/>
+  </g>
+  <!-- The request to YouTube carries the accent: captions, never the video or its audio. -->
+  <path d="M 688 146 H 751" fill="none" stroke="#4a5f86" stroke-width="1.4" marker-end="url(#youtube-transcribe-arrow-accent)"/>
+
+  <!-- Connector labels on masks, with a gap to their line. -->
+  <g font-size="11" font-weight="500" letter-spacing="0.06em" fill="#626366">
+    <rect x="458" y="132" width="44" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="480" y="144" text-anchor="middle">FETCH</text>
+    <rect x="692" y="122" width="56" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="720" y="134" text-anchor="middle" fill="#4a5f86">REQUEST</text>
+    <rect x="696" y="174" width="48" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="720" y="186" text-anchor="middle">TRACKS</text>
+    <rect x="608" y="212" width="84" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="612" y="224">BEST TRACK</text>
+    <rect x="368" y="212" width="108" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="372" y="224">ALREADY SAVED?</text>
+  </g>
+
+  <!-- Boxes: opaque fills, so the lines drawn before them stop at their edges. -->
+  <g stroke-width="1">
+    <rect x="32" y="56" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="32" y="184" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="272" y="120" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="512" y="120" width="176" height="72" rx="6" fill="#eef1f6" stroke="#4a5f86" stroke-width="1.4"/>
+    <rect x="752" y="120" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="512" y="248" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="272" y="248" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+  </g>
+
+  <!-- Names and sublabels. -->
+  <g text-anchor="middle">
+    <g font-size="15" font-weight="600" fill="#2b2c2e">
+      <text x="120" y="80">Obsidian plugin</text>
+      <text x="120" y="208">Claude Code skill</text>
+      <text x="360" y="144">yt-transcribe engine</text>
+      <text x="600" y="144" fill="#4a5f86">Caption picker</text>
+      <text x="840" y="144">YouTube</text>
+      <text x="600" y="272">Formatter</text>
+      <text x="360" y="272">Vault note</text>
+    </g>
+    <g font-size="12" fill="#626366">
+      <text x="120" y="100">a link from a prompt</text>
+      <text x="120" y="116">or the clipboard</text>
+      <text x="120" y="228">tells Claude which</text>
+      <text x="120" y="244">command to run</text>
+      <text x="360" y="164">one command per request,</text>
+      <text x="360" y="180">then it exits</text>
+      <text x="600" y="164">yt-dlp, a fixed track order,</text>
+      <text x="600" y="180">retries when refused</text>
+      <text x="840" y="164">video details and</text>
+      <text x="840" y="180">caption tracks, no audio</text>
+      <text x="600" y="292">prose paragraphs,</text>
+      <text x="600" y="308">a stamp every 5 minutes</text>
+      <text x="360" y="292">Title [video ID].md</text>
+      <text x="360" y="308">details as frontmatter</text>
+    </g>
+  </g>
+</svg>

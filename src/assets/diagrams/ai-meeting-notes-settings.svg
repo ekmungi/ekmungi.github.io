@@ -7,11 +7,8 @@
   <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff"/>
   <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
   <text x="18" y="24" font-size="11" fill="#626366">Settings</text>
-  <g stroke="#8b8c8f" stroke-width="1.2" fill="none">
-    <path d="M 438 20 H 446"/>
-    <rect x="456" y="16" width="8" height="8"/>
-    <path d="M 474 16 L 482 24 M 482 16 L 474 24"/>
-  </g>
+  <!-- Settings open as a dialog inside Obsidian, with a close button only. -->
+  <path d="M 474 16 L 482 24 M 482 16 L 474 24" stroke="#8b8c8f" stroke-width="1.2" fill="none"/>
   <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
 
   <!-- Settings sidebar, with the plugin's tab selected. -->

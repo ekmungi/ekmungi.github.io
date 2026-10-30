@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="ytt-playlist-title ytt-playlist-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="ytt-playlist-title">The result of a playlist</title>
+  <desc id="ytt-playlist-desc">A drawing of Obsidian after transcribing an invented playlist. The file explorer shows the default folder, Sources then YouTube Transcripts, with one note per lecture, each named after its title and video ID. A notice at the top right reads: "Playlist: 11 transcript(s) -- 10 new, 1 already in vault. 1 failed: Guest lecture Q&amp;A (CaptionFetchError). Run it again to retry them."</desc>
+
+  <!-- Window: drawn from the plugin's code, with an invented example playlist. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
+  <text x="18" y="24" font-size="11" fill="#626366">Obsidian</text>
+  <g stroke="#8b8c8f" stroke-width="1.2" fill="none">
+    <path d="M 438 20 H 446"/>
+    <rect x="456" y="16" width="8" height="8"/>
+    <path d="M 474 16 L 482 24 M 482 16 L 474 24"/>
+  </g>
+  <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
+
+  <!-- File explorer: one note per video, the video ID in each name. -->
+  <path d="M 6 35 H 216 V 344 H 14 Q 6 344 6 336 Z" fill="#f6f6f6"/>
+  <line x1="216.5" y1="35" x2="216.5" y2="344" stroke="#dbdbd7"/>
+  <g font-size="10" fill="#2b2c2e">
+    <text x="16" y="58" fill="#626366">▾</text>
+    <text x="28" y="58" font-weight="600">Sources</text>
+    <text x="28" y="76" fill="#626366">▾</text>
+    <text x="40" y="76" font-weight="600">YouTube Transcripts</text>
+    <text x="52" y="96">Lecture 01 [k3Jd9sP2xQa]</text>
+    <text x="52" y="114">Lecture 02 [Zp4Lm7Qw1Rt]</text>
+    <text x="52" y="132">Lecture 03 [Hy8Vb2Nc5Ke]</text>
+    <text x="52" y="150">Lecture 04 [Qe6Tr9Ui3Op]</text>
+    <text x="52" y="168">Lecture 05 [Wd1Sx4Ez7Rc]</text>
+    <text x="52" y="186">Lecture 06 [Bn5Mj8Kl2Pq]</text>
+    <text x="52" y="204" fill="#626366">…</text>
+  </g>
+
+  <!-- A note open behind the notice. -->
+  <g fill="#ececeb">
+    <rect x="236" y="140" width="180" height="10" rx="3"/>
+    <rect x="236" y="164" width="236" height="7" rx="3"/>
+    <rect x="236" y="180" width="210" height="7" rx="3"/>
+    <rect x="236" y="196" width="226" height="7" rx="3"/>
+    <rect x="236" y="220" width="190" height="7" rx="3"/>
+  </g>
+
+  <!-- The notice, top right, as Obsidian shows it. -->
+  <rect x="226" y="46" width="258" height="72" rx="6" fill="#2b2c2e"/>
+  <g font-size="10.5" fill="#ffffff">
+    <text x="238" y="66">Playlist: 11 transcript(s) -- 10 new, 1 already</text>
+    <text x="238" y="82">in vault. 1 failed: Guest lecture Q&amp;A</text>
+    <text x="238" y="98">(CaptionFetchError). Run it again to retry them.</text>
+  </g>
+
+  <!-- Window outline last, so the border stays crisp over the fills. -->
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="none" stroke="#c4c5c1"/>
+</svg>
