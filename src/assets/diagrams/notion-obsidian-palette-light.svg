@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="no-pal-light-title no-pal-light-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="no-pal-light-title">The light palette</title>
+  <desc id="no-pal-light-desc">Eight colour swatches that the Notion Obsidian theme applies in light mode, each with its role, hex value and CSS variable: Headings #37352f, Sidebar items #787774, Hovered item #efefed, Selected item #e8e8e6, File list #fafafa, Pane dividers #f7f6f3, Table row borders #e9e9e7, Scrollbar thumb #d3d1cc. The page background stays Obsidian's own, and the scrollbar colour needs the Style Settings plugin.</desc>
+
+  <!-- A design sheet: each swatch is a colour the theme's CSS applies in light mode. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff" stroke="#c4c5c1"/>
+  <text x="20" y="36" font-size="11" font-weight="600" letter-spacing="0.12em" fill="#626366">LIGHT PALETTE</text>
+  <rect x="20" y="58" width="64" height="52" rx="6" fill="#37352f" stroke="#c4c5c1"/>
+  <text x="96" y="75" font-size="12" font-weight="600" fill="#2b2c2e">Headings</text>
+  <text x="96" y="91" font-size="10" font-family="ui-monospace, 'Fira Code', monospace" fill="#3a3b3d">#37352f</text>
+  <text x="96" y="105" font-size="9" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366">--heading-text-color</text>
+  <rect x="260" y="58" width="64" height="52" rx="6" fill="#787774" stroke="#c4c5c1"/>
+  <text x="336" y="75" font-size="12" font-weight="600" fill="#2b2c2e">Sidebar items</text>
+  <text x="336" y="91" font-size="10" font-family="ui-monospace, 'Fira Code', monospace" fill="#3a3b3d">#787774</text>
+  <text x="336" y="105" font-size="9" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366">--nav-item-color</text>
+  <rect x="20" y="128" width="64" height="52" rx="6" fill="#efefed" stroke="#c4c5c1"/>
+  <text x="96" y="145" font-size="12" font-weight="600" fill="#2b2c2e">Hovered item</text>
+  <text x="96" y="161" font-size="10" font-family="ui-monospace, 'Fira Code', monospace" fill="#3a3b3d">#efefed</text>
+  <text x="96" y="175" font-size="9" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366">--nav-item-background-hover</text>
+  <rect x="260" y="128" width="64" height="52" rx="6" fill="#e8e8e6" stroke="#c4c5c1"/>
+  <text x="336" y="145" font-size="12" font-weight="600" fill="#2b2c2e">Selected item</text>
+  <text x="336" y="161" font-size="10" font-family="ui-monospace, 'Fira Code', monospace" fill="#3a3b3d">#e8e8e6</text>
+  <text x="336" y="175" font-size="9" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366">--nav-item-background-active</text>
+  <rect x="20" y="198" width="64" height="52" rx="6" fill="#fafafa" stroke="#c4c5c1"/>
+  <text x="96" y="215" font-size="12" font-weight="600" fill="#2b2c2e">File list</text>
+  <text x="96" y="231" font-size="10" font-family="ui-monospace, 'Fira Code', monospace" fill="#3a3b3d">#fafafa</text>
+  <text x="96" y="245" font-size="9" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366">--color-base-10</text>
+  <rect x="260" y="198" width="64" height="52" rx="6" fill="#f7f6f3" stroke="#c4c5c1"/>
+  <text x="336" y="215" font-size="12" font-weight="600" fill="#2b2c2e">Pane dividers</text>
+  <text x="336" y="231" font-size="10" font-family="ui-monospace, 'Fira Code', monospace" fill="#3a3b3d">#f7f6f3</text>
+  <text x="336" y="245" font-size="9" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366">--divider-color</text>
+  <rect x="20" y="268" width="64" height="52" rx="6" fill="#e9e9e7" stroke="#c4c5c1"/>
+  <text x="96" y="285" font-size="12" font-weight="600" fill="#2b2c2e">Table row borders</text>
+  <text x="96" y="301" font-size="10" font-family="ui-monospace, 'Fira Code', monospace" fill="#3a3b3d">#e9e9e7</text>
+  <text x="96" y="315" font-size="9" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366">--default-border-color</text>
+  <rect x="260" y="268" width="64" height="52" rx="6" fill="#d3d1cc" stroke="#c4c5c1"/>
+  <text x="336" y="285" font-size="12" font-weight="600" fill="#2b2c2e">Scrollbar thumb</text>
+  <text x="336" y="301" font-size="10" font-family="ui-monospace, 'Fira Code', monospace" fill="#3a3b3d">#d3d1cc</text>
+  <text x="336" y="315" font-size="9" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366">--scrollbar-color</text>
+  <text x="20" y="334" font-size="9.5" fill="#626366">The page keeps Obsidian's own background. The scrollbar colour needs Style Settings.</text>
+</svg>

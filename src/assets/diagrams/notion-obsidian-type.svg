@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="no-type-title no-type-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="no-type-title">The type scale and the fonts</title>
+  <desc id="no-type-desc">On the left, the six heading levels at their default sizes, 1.8, 1.4, 1.3, 1.2, 1 and 1 rem, and body text at 1 rem, drawn in Fira Sans. On the right, the body fonts to choose from: Fira Sans, the default, Source Sans 3, Nunito Sans and Inter, all four built into the theme; Fira Code for code; and the interface size of 0.825 rem with Style Settings or 0.875 rem without, and the Settings window size of 0.95 rem.</desc>
+
+  <!-- A design sheet: the default sizes from the theme's settings, drawn in its default body font. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff" stroke="#c4c5c1"/>
+  <text x="20" y="34" font-size="11" font-weight="600" letter-spacing="0.12em" fill="#626366">TYPE SCALE</text>
+  <text x="20" y="64" font-size="21.6" font-weight="700" fill="#37352f">Heading 1</text>
+  <text x="250" y="64" font-size="9.5" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366" text-anchor="end">H1 · 1.8 rem</text>
+  <text x="20" y="100" font-size="16.8" font-weight="700" fill="#37352f">Heading 2</text>
+  <text x="250" y="100" font-size="9.5" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366" text-anchor="end">H2 · 1.4 rem</text>
+  <text x="20" y="131" font-size="15.6" font-weight="700" fill="#37352f">Heading 3</text>
+  <text x="250" y="131" font-size="9.5" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366" text-anchor="end">H3 · 1.3 rem</text>
+  <text x="20" y="161" font-size="14.4" font-weight="700" fill="#37352f">Heading 4</text>
+  <text x="250" y="161" font-size="9.5" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366" text-anchor="end">H4 · 1.2 rem</text>
+  <text x="20" y="189" font-size="12.0" font-weight="700" fill="#37352f">Heading 5</text>
+  <text x="250" y="189" font-size="9.5" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366" text-anchor="end">H5 · 1.0 rem</text>
+  <text x="20" y="215" font-size="12.0" font-weight="700" fill="#37352f">Heading 6</text>
+  <text x="250" y="215" font-size="9.5" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366" text-anchor="end">H6 · 1.0 rem</text>
+  <text x="20" y="245" font-size="12.0" fill="#222222">Body text reads at 1 rem by default.</text>
+  <text x="250" y="259" font-size="9.5" font-family="ui-monospace, 'Fira Code', monospace" fill="#626366" text-anchor="end">body · 1 rem</text>
+
+  <line x1="270.5" y1="24" x2="270.5" y2="326" stroke="#e9e9e7"/>
+  <text x="286" y="34" font-size="11" font-weight="600" letter-spacing="0.12em" fill="#626366">BODY FONTS</text>
+  <g font-size="12" fill="#2b2c2e">
+    <text x="286" y="62" font-weight="600">Fira Sans</text>
+    <text x="286" y="77" font-size="9.5" fill="#626366">default, built in</text>
+    <text x="286" y="104" font-weight="600">Source Sans 3</text>
+    <text x="286" y="119" font-size="9.5" fill="#626366">built in</text>
+    <text x="286" y="146" font-weight="600">Nunito Sans</text>
+    <text x="286" y="161" font-size="9.5" fill="#626366">built in</text>
+    <text x="286" y="188" font-weight="600">Inter</text>
+    <text x="286" y="203" font-size="9.5" fill="#626366">built in</text>
+  </g>
+  <text x="286" y="236" font-size="11" font-weight="600" letter-spacing="0.12em" fill="#626366">CODE</text>
+  <text x="286" y="258" font-size="12" font-weight="600" fill="#2b2c2e">Fira Code</text>
+  <text x="286" y="273" font-size="9.5" fill="#626366">built in</text>
+  <text x="286" y="302" font-size="11" font-weight="600" letter-spacing="0.12em" fill="#626366">INTERFACE</text>
+  <text x="286" y="320" font-size="10" fill="#3a3b3d">menus 0.825 rem, Settings 0.95 rem</text>
+  <text x="286" y="334" font-size="9" fill="#626366">(menus 0.875 rem without Style Settings)</text>
+</svg>

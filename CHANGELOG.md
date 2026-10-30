@@ -2,6 +2,12 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.4.3] - 2026-10-30
+
+### Changed
+
+- The Notion Obsidian Theme page is a design and features overview. It credits Obsidianotion by Diego Eis, the theme it is forked from, and explains the palette, the type and the bundled fonts. It shows seven drawings made from the theme's CSS with an invented note: a note in light and in dark mode, the two palettes with their values, the type scale and fonts, and the two halves of the Style Settings panel. A theme has no data flow to diagram, so the palettes and the type scale take the diagram's place. It has four references: Obsidianotion, Style Settings, the SIL Open Font License and Obsidian's CSS variables. An independent review against the theme's CSS corrected the colours and sizes first, so the page and the drawings show only what the theme applies; the page background, for one, stays Obsidian's own.
+
 ## [0.4.2] - 2026-10-30
 
 ### Changed

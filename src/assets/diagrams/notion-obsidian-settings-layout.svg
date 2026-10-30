@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="no-set-layout-title no-set-layout-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="no-set-layout-title">Style Settings: layout</title>
+  <desc id="no-set-layout-desc">A drawing of the theme&#x27;s Style Settings panel, the section Structure of components and areas: the body width field set to 1280, and switches for small pinned tabs and hiding the ribbon, both off, and for a small interface font, scrollbars, icons in the sidebar, the new note button at the bottom of the sidebar and alternative checkboxes, all on.</desc>
+
+  <!-- Obsidian's Settings dialog showing the Style Settings panel; the names and descriptions are the theme's own. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
+  <text x="18" y="24" font-size="11" fill="#626366">Settings · Style Settings</text>
+  <path d="M 474 16 L 482 24 M 482 16 L 474 24" stroke="#8b8c8f" stroke-width="1.2" fill="none"/>
+  <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
+  <path d="M 18 49 L 22 53 L 26 49" fill="none" stroke="#626366" stroke-width="1.3"/>
+  <text x="32" y="56" font-size="13" font-weight="600" fill="#2b2c2e">Notion Obsidian visual control settings</text>
+  <path d="M 18 73 L 22 77 L 26 73" fill="none" stroke="#626366" stroke-width="1.3"/>
+  <text x="32" y="80" font-size="12" font-weight="600" fill="#2b2c2e">Structure of components and areas</text>
+  <text x="32" y="104" font-size="10.5" font-weight="500" fill="#2b2c2e">Width of body content. Where you write and read.</text>
+  <rect x="420" y="94" width="60" height="18" rx="3" fill="#ffffff" stroke="#c4c5c1"/><text x="426" y="106" font-size="10" fill="#2b2c2e">1280</text>
+  <line x1="32" y1="122.5" x2="482" y2="122.5" stroke="#ececeb"/>
+  <text x="32" y="133" font-size="10.5" font-weight="500" fill="#2b2c2e">Small Pinned Tabs</text>
+  <text x="32" y="145" font-size="8.5" fill="#626366">Pinned tabs get smaller</text>
+  <rect x="452" y="124" width="28" height="15" rx="7.5" fill="#d6d6d3"/><circle cx="459.5" cy="131.5" r="5.5" fill="#ffffff"/>
+  <line x1="32" y1="151.5" x2="482" y2="151.5" stroke="#ececeb"/>
+  <text x="32" y="162" font-size="10.5" font-weight="500" fill="#2b2c2e">Hide Ribbon</text>
+  <text x="32" y="174" font-size="8.5" fill="#626366">Hiden ribbon left bar icons</text>
+  <rect x="452" y="153" width="28" height="15" rx="7.5" fill="#d6d6d3"/><circle cx="459.5" cy="160.5" r="5.5" fill="#ffffff"/>
+  <line x1="32" y1="180.5" x2="482" y2="180.5" stroke="#ececeb"/>
+  <text x="32" y="191" font-size="10.5" font-weight="500" fill="#2b2c2e">Small interface font</text>
+  <text x="32" y="203" font-size="8.5" fill="#626366">When enabled, shrinks UI elements (sidebar, tabs, nav) to 0.825rem…</text>
+  <rect x="452" y="182" width="28" height="15" rx="7.5" fill="#4a5f86"/><circle cx="472.5" cy="189.5" r="5.5" fill="#ffffff"/>
+  <line x1="32" y1="209.5" x2="482" y2="209.5" stroke="#ececeb"/>
+  <text x="32" y="220" font-size="10.5" font-weight="500" fill="#2b2c2e">Show scrollbars</text>
+  <text x="32" y="232" font-size="8.5" fill="#626366">When activated scrollbars will be visible</text>
+  <rect x="452" y="211" width="28" height="15" rx="7.5" fill="#4a5f86"/><circle cx="472.5" cy="218.5" r="5.5" fill="#ffffff"/>
+  <line x1="32" y1="238.5" x2="482" y2="238.5" stroke="#ececeb"/>
+  <text x="32" y="249" font-size="10.5" font-weight="500" fill="#2b2c2e">Show icons in sidebar</text>
+  <text x="32" y="261" font-size="8.5" fill="#626366">When activated files and folders icons will be visible</text>
+  <rect x="452" y="240" width="28" height="15" rx="7.5" fill="#4a5f86"/><circle cx="472.5" cy="247.5" r="5.5" fill="#ffffff"/>
+  <line x1="32" y1="267.5" x2="482" y2="267.5" stroke="#ececeb"/>
+  <text x="32" y="278" font-size="10.5" font-weight="500" fill="#2b2c2e">Change the &quot;new note button&quot; to bottom of sidebar</text>
+  <text x="32" y="290" font-size="8.5" fill="#626366">When enable, we put the new note button at the bottom of sidebar</text>
+  <rect x="452" y="269" width="28" height="15" rx="7.5" fill="#4a5f86"/><circle cx="472.5" cy="276.5" r="5.5" fill="#ffffff"/>
+  <line x1="32" y1="296.5" x2="482" y2="296.5" stroke="#ececeb"/>
+  <text x="32" y="307" font-size="10.5" font-weight="500" fill="#2b2c2e">Enable Alternative Checkboxes</text>
+  <text x="32" y="319" font-size="8.5" fill="#626366">Disable this if you are using your own implementation via a CSS Snippet.</text>
+  <rect x="452" y="298" width="28" height="15" rx="7.5" fill="#4a5f86"/><circle cx="472.5" cy="305.5" r="5.5" fill="#ffffff"/>
+  <line x1="32" y1="325.5" x2="482" y2="325.5" stroke="#ececeb"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="none" stroke="#c4c5c1"/>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="no-dark-title no-dark-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="no-dark-title">A note in dark mode</title>
+  <desc id="no-dark-desc">A drawing of an invented note, Reading notes, in Obsidian with the Notion Obsidian theme in dark mode. The sidebar lists a few notes with Reading notes selected. The page shows a large heading, a paragraph, a smaller heading, a short list and a small table, in the colours the theme applies in dark mode on Obsidian's own page.</desc>
+
+  <!-- Window: drawn from the theme's dark-mode colour values, with an invented note. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#1e1e1e"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#262626"/>
+  <text x="18" y="24" font-size="11" fill="#9b9a97">Obsidian</text>
+  <g stroke="#9b9a97" stroke-width="1.2" fill="none">
+    <path d="M 438 20 H 446"/>
+    <rect x="456" y="16" width="8" height="8"/>
+    <path d="M 474 16 L 482 24 M 482 16 L 474 24"/>
+  </g>
+
+  <!-- Sidebar: the theme's file-list colour, grey items and the selected note; the pane divider in the theme's colour. -->
+  <path d="M 6 35 H 150 V 344 H 14 Q 6 344 6 336 Z" fill="#2e2e2e"/>
+  <line x1="150.5" y1="35" x2="150.5" y2="344" stroke="#202020" stroke-width="2"/>
+  <text x="16" y="56" font-size="10" font-weight="600" fill="#9b9a97">Notes</text>
+    <text x="22" y="84" font-size="10.5" fill="#9b9a97">Inbox</text>
+  <text x="22" y="106" font-size="10.5" fill="#9b9a97">Projects</text>
+  <rect x="12" y="115" width="132" height="19" rx="4" fill="#252525"/>
+  <text x="22" y="128" font-size="10.5" font-weight="500" fill="#dadada">Reading notes</text>
+  <text x="22" y="150" font-size="10.5" fill="#9b9a97">Recipes</text>
+  <text x="22" y="172" font-size="10.5" fill="#9b9a97">Travel</text>
+
+  <!-- Tab bar: Obsidian's own; the active tab underlined in the heading colour. -->
+  <rect x="152" y="35" width="342" height="24" fill="#262626"/>
+  <rect x="155" y="38" width="110" height="21" fill="#3b3b3b"/>
+  <text x="164" y="52" font-size="10" fill="#e3e2e0">Reading notes</text>
+  <line x1="155" y1="58" x2="265" y2="58" stroke="#e3e2e0" stroke-width="2"/>
+
+  <!-- The note: a large heading, text, a smaller heading, a list and a table with the theme's row borders. -->
+  <text x="176" y="94" font-size="21" font-weight="700" fill="#e3e2e0">Reading notes</text>
+  <g font-size="11" fill="#e3e2e0">
+    <text x="176" y="120">Notes from the books and papers I read this month,</text>
+    <text x="176" y="135">with the passages worth keeping.</text>
+  </g>
+  <text x="176" y="166" font-size="16" font-weight="700" fill="#e3e2e0">This month</text>
+  <g font-size="11" fill="#e3e2e0">
+    <text x="180" y="190">•  A book on how databases store and move data</text>
+    <text x="180" y="208">•  A paper on small models for search</text>
+    <text x="180" y="226">•  An essay on writing clear technical prose</text>
+  </g>
+  <g font-size="10.5">
+    <text x="176" y="258" font-weight="600" fill="#e3e2e0">Title</text>
+    <text x="356" y="258" font-weight="600" fill="#e3e2e0">Status</text>
+    <line x1="176" y1="266.5" x2="470" y2="266.5" stroke="#2f2f2f"/>
+    <text x="176" y="284" fill="#e3e2e0">Databases book</text>
+    <text x="356" y="284" fill="#e3e2e0">Reading</text>
+    <line x1="176" y1="292.5" x2="470" y2="292.5" stroke="#2f2f2f"/>
+    <text x="176" y="310" fill="#e3e2e0">Search paper</text>
+    <text x="356" y="310" fill="#e3e2e0">Done</text>
+    <line x1="176" y1="318.5" x2="470" y2="318.5" stroke="#2f2f2f"/>
+  </g>
+
+  <!-- Window outline last, so the border stays crisp over the fills. -->
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="none" stroke="#3a3a3a"/>
+</svg>
