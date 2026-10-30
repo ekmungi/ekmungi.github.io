@@ -15,6 +15,10 @@ All notable changes to this project are listed here. The format follows [Keep a 
 - Lists in a project's text keep the same line length as its paragraphs.
 - Frame titles carry the class `frame-title`, so a heading inside the frame text is not mistaken for the frame's title.
 
+### Fixed
+
+- The publishing build no longer restores Astro's content cache from an earlier run. The cache kept project entries from before the `references` field existed, so the first push of this version failed to build while the tests passed.
+
 ## [0.2.1] - 2026-10-23
 
 ### Fixed
