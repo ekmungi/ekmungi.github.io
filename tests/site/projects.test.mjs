@@ -23,8 +23,11 @@ const spanOf = (frame) => {
   return match ? Number(match[1]) : null;
 };
 
-/** The [heading, span] pairs of the frames inside <main> of a built page, in page order. */
-const framesOf = (outDir, route) => loadPage(outDir, route).querySelectorAll('main .frame').map((frame) => [tidy(frame.querySelector('h2')?.text ?? ''), spanOf(frame)]);
+/** The title of a frame, empty when it has none; a heading inside the frame's own text is not its title. */
+const titleOf = (frame) => tidy(frame.querySelector('h2.frame-title')?.text ?? '');
+
+/** The [title, span] pairs of the frames inside <main> of a built page, in page order. */
+const framesOf = (outDir, route) => loadPage(outDir, route).querySelectorAll('main .frame').map((frame) => [titleOf(frame), spanOf(frame)]);
 
 /** The tiles under one frame heading as [address, title, summary, status]; empty when the frame is missing. */
 const tilesUnder = (outDir, heading) =>
@@ -103,17 +106,58 @@ test('a private project links nowhere outside the site and does not mention GitH
   }
 });
 
-test('a project page has its text frame, and beside it an Updates frame with the dated updates newest first when it has any', () => {
+test('a project page has its text frame, beside it an Updates frame with the dated updates newest first when it has any, below them a How it works frame when it has a diagram, and last a References frame when it has references', () => {
   for (const { outDir, projects } of BUILDS) {
     for (const { id, data } of projects) {
       const route = `/projects/${id}/`;
       const updates = [...(data.updates ?? [])].sort((a, b) => String(b.date).localeCompare(String(a.date)));
-      assert.deepEqual(framesOf(outDir, route), updates.length > 0 ? [['', 8], ['Updates', 4]] : [['', 12]], `${outDir} ${route}`);
+      const expected = [
+        ...(updates.length > 0 ? [['', 8], ['Updates', 4]] : [['', 12]]),
+        ...(data.diagram ? [['How it works', 12]] : []),
+        ...((data.references ?? []).length > 0 ? [['References', 12]] : []),
+      ];
+      assert.deepEqual(framesOf(outDir, route), expected, `${outDir} ${route}`);
       const items = loadPage(outDir, route).querySelectorAll('main ul.updates li');
       assert.deepEqual(
         items.map((item) => [item.querySelector('time').getAttribute('datetime'), tidy(item.querySelector('time').text), tidy(item.querySelector('span').text)]),
         updates.map(({ date, text }) => [String(date), shownDay(String(date)), tidy(text)]),
         `${outDir} ${route}`,
+      );
+    }
+  }
+});
+
+test('a project diagram is drawn inline as an accessible image, named by its own title and description, with its caption below', () => {
+  for (const { outDir, projects } of BUILDS) {
+    for (const { id, data } of projects.filter((project) => project.data.diagram)) {
+      const frame = loadPage(outDir, `/projects/${id}/`)
+        .querySelectorAll('main .frame')
+        .find((candidate) => titleOf(candidate) === 'How it works');
+      const svg = frame.querySelector('figure svg');
+      assert.ok(svg, `${outDir} ${id}: the diagram is inline SVG`);
+      assert.equal(svg.getAttribute('role'), 'img', `${outDir} ${id}`);
+      const names = (svg.getAttribute('aria-labelledby') ?? '').split(/\s+/).filter(Boolean);
+      assert.deepEqual(names.map((name) => svg.querySelector(`[id="${name}"]`)?.tagName.toLowerCase()), ['title', 'desc'], `${outDir} ${id}`);
+      for (const name of names) assert.notEqual(tidy(svg.querySelector(`[id="${name}"]`).text), '', `${outDir} ${id}: ${name} is filled in`);
+      assert.equal(tidy(frame.querySelector('figure figcaption').text), tidy(data.diagram.caption), `${outDir} ${id}`);
+    }
+  }
+});
+
+test('the References frame lists each paper in file order: its linked title, its authors and source, and what the project takes from it', () => {
+  for (const { outDir, projects } of BUILDS) {
+    for (const { id, data } of projects.filter((project) => (project.data.references ?? []).length > 0)) {
+      const frame = loadPage(outDir, `/projects/${id}/`)
+        .querySelectorAll('main .frame')
+        .find((candidate) => titleOf(candidate) === 'References');
+      const items = frame.querySelectorAll('ul.references li');
+      assert.deepEqual(
+        items.map((item) => {
+          const link = item.querySelector('a');
+          return [tidy(link.text), link.getAttribute('href'), tidy(item.querySelector('.cite').text), tidy(item.querySelector('.use').text)];
+        }),
+        data.references.map(({ title, url, authors, source, use }) => [tidy(title), url, tidy(`${authors} · ${source}`), tidy(use)]),
+        `${outDir} ${id}`,
       );
     }
   }

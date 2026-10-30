@@ -1,12 +1,17 @@
 ---
-// One project page: title, kind and status, a link to the code or the notebook when there is one, then the text and, when the project has any, a dated list of updates.
+// One project page: title, kind and status, a link to the code or the notebook when there is one, then the text and, when the project has any,
+// a dated list of updates, below them, when the project names one, its "How it works" diagram, and last the papers it builds on.
 import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import Frame from '../../../components/Frame.astro';
 import PageHead from '../../../components/PageHead.astro';
+import PaperTitle from '../../../components/PaperTitle.astro';
 import { SITE } from '../../../data/site';
 import { isPublished } from '../../../lib/content';
 import { formatDay, sortUpdatesDesc, statusLabel } from '../../../lib/projects';
+
+// Every diagram in src/assets/diagrams, read as text, so the SVG is placed in the page as drawn and its labels use the site's font.
+const DIAGRAMS = import.meta.glob<string>('../../../assets/diagrams/*.svg', { query: '?raw', import: 'default', eager: true });
 
 /**
  * Tell Astro which project pages to build: one per published file in src/content/projects, at /projects/<file name>/.
@@ -20,11 +25,16 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, kind, summary, repo, colab, updates } = project.data;
+const { title, kind, summary, repo, colab, updates, diagram, references } = project.data;
 const status = statusLabel(project.data);
 const updatesNewestFirst = sortUpdatesDesc(updates);
 // With no updates to show, the text takes the full width: a section that cannot be sourced is left out.
 const hasUpdates = updatesNewestFirst.length > 0;
+// A diagram the project names but the folder does not hold stops the build, rather than leaving an empty frame on the page.
+const diagramSvg = diagram && DIAGRAMS[`../../../assets/diagrams/${diagram.file}`];
+if (diagram && diagramSvg === undefined) {
+  throw new Error(`The project "${project.id}" names the diagram "${diagram.file}", which is not in src/assets/diagrams.`);
+}
 ---
 
 <Base title={`${title} | ${SITE.name}`} page="projects" subpage description={summary}>
@@ -57,6 +67,33 @@ const hasUpdates = updatesNewestFirst.length > 0;
         </Frame>
       )
     }
+    {
+      diagram && (
+        <Frame span={12} title="How it works">
+          <figure class="diagram">
+            <div class="diagram-scroll">
+              <Fragment set:html={diagramSvg} />
+            </div>
+            <figcaption>{diagram.caption}</figcaption>
+          </figure>
+        </Frame>
+      )
+    }
+    {
+      references.length > 0 && (
+        <Frame span={12} title="References">
+          <ul class="references">
+            {references.map((paper) => (
+              <li>
+                <PaperTitle paper={paper} />
+                <span class="cite">{paper.authors} · {paper.source}</span>
+                <span class="use">{paper.use}</span>
+              </li>
+            ))}
+          </ul>
+        </Frame>
+      )
+    }
   </div>
 </Base>
 
@@ -81,6 +118,52 @@ const hasUpdates = updatesNewestFirst.length > 0;
   }
 
   .updates time {
+    display: block;
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  /* Lists in the project text keep the same readable line length as its paragraphs (see .frame p in global.css). */
+  .grid :global(.frame > ul) {
+    max-width: 860px;
+  }
+
+  .diagram {
+    margin: 0;
+  }
+
+  /* The diagram fills the frame. Each SVG sets its own min-width to its drawn width, so on a narrow screen it scrolls sideways
+     inside the frame at a readable size, and the page itself never scrolls sideways. */
+  .diagram-scroll {
+    overflow-x: auto;
+  }
+
+  .diagram-scroll :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .diagram figcaption {
+    margin-top: 12px;
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  /* Each reference: the linked title, then who wrote it and where it appeared, then what the project takes from it. */
+  .references {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 860px;
+  }
+
+  .references li {
+    margin-bottom: 16px;
+  }
+
+  .references .cite,
+  .references .use {
     display: block;
     font-size: 15px;
     color: var(--muted);

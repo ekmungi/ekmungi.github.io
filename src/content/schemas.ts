@@ -82,6 +82,26 @@ function filledText(kind: string, name: string) {
 // The only form of repository link the `repo` field accepts. The capture group is the repository name.
 const REPO_LINK = /^https:\/\/github\.com\/ekmungi\/([^/]+)\/?$/;
 
+// A diagram file name: lower-case letters, digits and hyphens, ending in .svg. It names a file in src/assets/diagrams, so a path or
+// a ".." cannot lead the page to a file elsewhere.
+const DIAGRAM_FILE = /^[a-z0-9-]+\.svg$/;
+
+// A project's "How it works" diagram: the SVG file and the one line shown under it.
+const diagramField = z.object({
+  file: z.string().regex(DIAGRAM_FILE, 'Name the diagram by its file in src/assets/diagrams: lower-case letters, digits and hyphens, ending in .svg.'),
+  caption: filledText('diagram', 'caption'),
+});
+
+// A paper a project builds on: its title and address, who wrote it, where and when it appeared, and what the project takes from it.
+// The address is required, so a reader can always look the paper up.
+const referenceField = z.object({
+  title: filledText('reference', 'title'),
+  url: webUrl,
+  authors: filledText('reference', 'authors'),
+  source: filledText('reference', 'source'),
+  use: filledText('reference', 'use'),
+});
+
 // The one host a `colab` link may use. Other hosts (githubtocolab.com, old Colab aliases) can also open
 // a GitHub notebook, so allowing only this host keeps the GitHub checks complete.
 const COLAB_HOST = 'colab.research.google.com';
@@ -127,6 +147,8 @@ export const projectSchema = z
     repo: webUrl.optional(),
     private: z.boolean().default(false),
     colab: webUrl.optional(),
+    diagram: diagramField.optional(),
+    references: z.array(referenceField).default([]),
     draft: z.boolean().default(false),
     updates: z.array(z.object({ date: dateField, text: z.string() })).default([]),
   })

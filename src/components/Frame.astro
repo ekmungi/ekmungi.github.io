@@ -1,5 +1,6 @@
 ---
-// One section frame on a page's 12-column grid; span sets the columns it covers and title adds an <h2>.
+// One section frame on a page's 12-column grid; span sets the columns it covers and title adds an <h2>. The title's class tells it apart
+// from an <h2> inside the frame's own text, such as "The problem" on a project page.
 interface Props {
   span: 4 | 5 | 7 | 8 | 12;
   title?: string;
@@ -9,6 +10,6 @@ const { span, title } = Astro.props;
 ---
 
 <section class={`frame s${span}`}>
-  {title && <h2>{title}</h2>}
+  {title && <h2 class="frame-title">{title}</h2>}
   <slot />
 </section>

@@ -154,4 +154,20 @@ export const FIXTURES = {
       'posts/fixture-blank-title.md': post({ title: '   ', date: '2026-01-01', tags: ['Fixture Tag'] }),
     },
   },
+  // A project that names a diagram file which does not exist: the build must refuse it and name the file.
+  'missing-diagram': {
+    drafts: false,
+    expect: 'fail',
+    files: {
+      'projects/fixture-no-diagram.md': project([
+        'title: "Fixture tool"',
+        'kind: software',
+        'summary: "Fixture summary."',
+        'status: "Planned"',
+        'diagram:',
+        '  file: "fixture-missing.svg"',
+        '  caption: "Fixture caption."',
+      ]),
+    },
+  },
 };

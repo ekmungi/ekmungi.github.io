@@ -37,6 +37,38 @@ test('a title or summary with text keeps its spacing as written', () => {
   assert.equal(projectSchema.parse({ ...project, summary: 'One line.' }).summary, 'One line.');
 });
 
+test('a project diagram names an SVG file in src/assets/diagrams and needs a caption', () => {
+  const diagram = { file: 'smart-search.svg', caption: 'From a file on disk to a search result.' };
+  assert.deepEqual(projectSchema.parse({ ...project, diagram }).diagram, diagram);
+  for (const file of ['Smart-Search.svg', 'smart search.svg', '../x.svg', 'diagrams/x.svg', 'x.png', '.svg', '']) {
+    const result = projectSchema.safeParse({ ...project, diagram: { file, caption: 'c' } });
+    assert.equal(result.success, false, JSON.stringify(file));
+    assert.match(messages(result), /src\/assets\/diagrams/, JSON.stringify(file));
+  }
+  for (const caption of BLANK) {
+    const result = projectSchema.safeParse({ ...project, diagram: { file: 'x.svg', caption } });
+    assert.equal(result.success, false, JSON.stringify(caption));
+    assert.match(messages(result), /needs a caption/);
+  }
+});
+
+test('a project reference has a title, a web address, authors, a source and a use, and a project without references has none', () => {
+  const reference = { title: 'A paper', url: 'https://doi.org/10.1/x', authors: 'A and B', source: 'SIGIR 2009', use: 'What it is used for.' };
+  assert.deepEqual(projectSchema.parse({ ...project, references: [reference] }).references, [reference]);
+  assert.deepEqual(projectSchema.parse(project).references, []);
+  for (const field of ['title', 'authors', 'source', 'use']) {
+    for (const value of BLANK) {
+      const result = projectSchema.safeParse({ ...project, references: [{ ...reference, [field]: value }] });
+      assert.equal(result.success, false, `${field}: ${JSON.stringify(value)}`);
+      assert.match(messages(result), new RegExp(`reference needs a ${field}`), field);
+    }
+  }
+  for (const url of [undefined, '', 'doi.org/10.1/x', 'javascript:alert(1)']) {
+    const result = projectSchema.safeParse({ ...project, references: [{ ...reference, url }] });
+    assert.equal(result.success, false, JSON.stringify(url));
+  }
+});
+
 test('a paper or publication may name the language of its title and give a translation', () => {
   const paper = { title: 'Un titre', lang: 'fr', translation: 'A title' };
   const research = { title: 'T', period: 'p', place: 'q', summary: 's', order: 1, papers: [paper] };

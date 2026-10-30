@@ -2,6 +2,19 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.3.0] - 2026-10-30
+
+### Added
+
+- A project page can show a "How it works" diagram in a full-width frame below its text. The project names an SVG from `src/assets/diagrams/` with `diagram:` (a `file` and a `caption`), and the SVG is placed in the page as drawn, so its labels use the site's font. On a phone the diagram scrolls sideways inside its frame, and the page itself does not. A diagram the folder does not hold stops the build.
+- A project page can end with a References frame, listing the papers the project builds on. Each one has a linked title, its authors and source, and a line on what the project takes from it. The project lists them under `references:`, and every reference needs a web address.
+- The Smart Search page has a new text: the problem it solves, a "How it is built" section that explains how the six papers behind its methods shaped each step, what it does, a diagram of how it indexes files and answers a search, and the references. The text was checked against the code of version 0.15.1 by an independent review, and the references were checked against Crossref and arXiv.
+
+### Changed
+
+- Lists in a project's text keep the same line length as its paragraphs.
+- Frame titles carry the class `frame-title`, so a heading inside the frame text is not mistaken for the frame's title.
+
 ## [0.2.1] - 2026-10-23
 
 ### Fixed
