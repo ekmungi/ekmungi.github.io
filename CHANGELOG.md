@@ -2,6 +2,13 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.4.4] - 2026-10-30
+
+### Changed
+
+- The Smart Memory page presents it as a learning project and a work in progress: the first version works, most of a redesign is built, and its use case is still open next to commercial memory services and the LLM-wiki approach. It has the problem, a "How it is built" section, what it does, a diagram of how sessions become cards and distilled memories, and six references: Generative Agents, MemGPT, Zep, Mem0, Karpathy's LLM-wiki note and Supermemory. The code stays private, so the page has no repository link. An independent review against the code corrected three false statements first: memories are grouped by project, links to vault notes are not built yet, and every search query also goes to the hosted embedding model.
+- The privacy test for private projects now refuses links to my own GitHub account rather than every GitHub link, so other people's public work on GitHub can be cited. A private project's page still links out only from its References frame and does not mention GitHub.
+
 ## [0.4.3] - 2026-10-30
 
 ### Changed

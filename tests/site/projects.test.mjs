@@ -95,7 +95,7 @@ test('a project page shows its title, kind and status, and links in its head onl
   }
 });
 
-test('a private project links outside the site only from its References frame, never to GitHub, and does not mention GitHub', () => {
+test('a private project links outside the site only from its References frame, never to my own GitHub account, and does not mention GitHub', () => {
   for (const { outDir, projects } of BUILDS) {
     for (const { id, data } of projects.filter((project) => project.data.private)) {
       const main = loadPage(outDir, `/projects/${id}/`).querySelector('main');
@@ -104,7 +104,8 @@ test('a private project links outside the site only from its References frame, n
       const outside = main.querySelectorAll('a[href^="http"], a[href^="//"]');
       const cited = main.querySelectorAll('ul.references a');
       assert.deepEqual(outside.filter((link) => !cited.includes(link)).map((link) => link.getAttribute('href')), [], `${id} (${data.title}) links out only from its references`);
-      assert.deepEqual(outside.map((link) => link.getAttribute('href')).filter((href) => /github/i.test(href)), [], `${id} has no GitHub link`);
+      // Other people's public work on GitHub may be cited; nothing may point at my own account, where the private code lives.
+      assert.deepEqual(outside.map((link) => link.getAttribute('href')).filter((href) => /github\.com\/ekmungi\b/i.test(href)), [], `${id} has no link to my GitHub account`);
       assert.ok(!/github/i.test(tidy(main.text)), `${id} does not mention GitHub`);
     }
   }

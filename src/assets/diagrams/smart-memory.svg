@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" style="min-width:960px" role="img" aria-labelledby="smart-memory-title smart-memory-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="smart-memory-title">How Smart Memory works</title>
+  <desc id="smart-memory-desc">An ingest run, started by hand, reads finished Claude Code session transcripts from disk and, with hosted models from OpenRouter and Voyage, breaks them into typed evidence cards with vectors, kept in SQLite. Consolidation, run on demand, groups the facts by project and, with a hosted model, distils one current conclusion per group. An MCP server lets Claude Code and Claude Desktop sessions search both the cards and the distilled memories, sending each search query to the hosted embedding model, and what searches surface decides which memories are promoted or archived.</desc>
+  <defs>
+    <marker id="smart-memory-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto-start-reverse">
+      <polygon points="0 0, 8 3, 0 6" fill="#8b8c8f"/>
+    </marker>
+    <marker id="smart-memory-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4a5f86"/>
+    </marker>
+  </defs>
+
+  <!-- Paper: the frame colour, so label masks match what sits behind them. -->
+  <rect width="960" height="420" fill="#f8f8f7"/>
+
+  <!-- Zones: my computer, and the hosted models it calls. -->
+  <rect x="16" y="16" width="704" height="388" rx="8" fill="#3a3b3d" fill-opacity="0.02" stroke="#dbdbd7" stroke-width="1"/>
+  <text x="32" y="38" fill="#626366" font-size="11" font-weight="500" letter-spacing="0.12em">ON MY COMPUTER</text>
+  <rect x="736" y="16" width="208" height="160" rx="8" fill="#3a3b3d" fill-opacity="0.02" stroke="#dbdbd7" stroke-width="1" stroke-dasharray="5,4"/>
+  <text x="752" y="38" fill="#626366" font-size="11" font-weight="500" letter-spacing="0.12em">HOSTED MODELS</text>
+
+  <!-- Connectors, drawn before the boxes. -->
+  <g fill="none" stroke="#8b8c8f" stroke-width="1.2">
+    <path d="M 208 92 H 271" marker-end="url(#smart-memory-arrow)"/>
+    <path d="M 449 92 H 751" marker-start="url(#smart-memory-arrow)" marker-end="url(#smart-memory-arrow)"/>
+    <path d="M 360 128 V 183" marker-end="url(#smart-memory-arrow)"/>
+    <path d="M 448 220 H 511" marker-end="url(#smart-memory-arrow)"/>
+    <path d="M 640 183 V 160 Q 640 152 648 152 H 832 Q 840 152 840 144 V 129" marker-start="url(#smart-memory-arrow)" marker-end="url(#smart-memory-arrow)"/>
+    <path d="M 360 256 V 311" marker-end="url(#smart-memory-arrow)"/>
+    <path d="M 512 336 H 449" marker-end="url(#smart-memory-arrow)"/>
+    <path d="M 448 362 H 511" stroke-dasharray="5,4" marker-end="url(#smart-memory-arrow)"/>
+    <path d="M 209 348 H 271" marker-start="url(#smart-memory-arrow)" marker-end="url(#smart-memory-arrow)"/>
+    <path d="M 360 385 V 392 Q 360 400 368 400 H 862 Q 870 400 870 392 V 129" marker-end="url(#smart-memory-arrow)"/>
+  </g>
+  <!-- The distilled layer carries the accent: the part the redesign added. -->
+  <path d="M 580 256 V 311" fill="none" stroke="#4a5f86" stroke-width="1.4" marker-end="url(#smart-memory-arrow-accent)"/>
+
+  <!-- Connector labels on masks, with a gap to their line. -->
+  <g font-size="11" font-weight="500" letter-spacing="0.06em" fill="#626366">
+    <rect x="210" y="60" width="60" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="240" y="72" text-anchor="middle">FINISHED</text>
+    <rect x="548" y="68" width="104" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="600" y="80" text-anchor="middle">EXTRACT, EMBED</text>
+    <rect x="368" y="148" width="48" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="372" y="160">CARDS</text>
+    <rect x="458" y="196" width="44" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="480" y="208" text-anchor="middle">GROUP</text>
+    <rect x="684" y="128" width="48" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="708" y="140" text-anchor="middle">DISTIL</text>
+    <rect x="588" y="276" width="88" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="592" y="288" fill="#4a5f86">CONCLUSIONS</text>
+    <rect x="280" y="276" width="72" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="348" y="288" text-anchor="end">EVIDENCE</text>
+    <rect x="456" y="312" width="48" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="480" y="324" text-anchor="middle">RECALL</text>
+    <rect x="462" y="370" width="36" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="480" y="382" text-anchor="middle">USE</text>
+    <rect x="222" y="324" width="36" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="240" y="336" text-anchor="middle">MCP</text>
+    <rect x="878" y="244" width="48" height="16" rx="2" fill="#f8f8f7"/>
+    <text x="882" y="256">QUERY</text>
+  </g>
+
+  <!-- Boxes: opaque fills, so the lines drawn before them stop at their edges. -->
+  <g stroke-width="1">
+    <rect x="32" y="56" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="272" y="56" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="752" y="56" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="272" y="184" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="512" y="184" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="512" y="312" width="176" height="72" rx="6" fill="#eef1f6" stroke="#4a5f86" stroke-width="1.4"/>
+    <rect x="272" y="312" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+    <rect x="32" y="312" width="176" height="72" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+  </g>
+
+  <!-- Names and sublabels. -->
+  <g text-anchor="middle">
+    <g font-size="15" font-weight="600" fill="#2b2c2e">
+      <text x="120" y="80">Session transcripts</text>
+      <text x="360" y="80">Ingest run</text>
+      <text x="840" y="80">Hosted models</text>
+      <text x="360" y="208">Evidence cards</text>
+      <text x="600" y="208">Consolidation</text>
+      <text x="600" y="336" fill="#4a5f86">Distilled memories</text>
+      <text x="360" y="336">MCP server</text>
+      <text x="120" y="336">Claude sessions</text>
+    </g>
+    <g font-size="12" fill="#626366">
+      <text x="120" y="100">Claude Code,</text>
+      <text x="120" y="116">read from disk</text>
+      <text x="360" y="100">started by hand, reads</text>
+      <text x="360" y="116">sessions idle three hours</text>
+      <text x="840" y="100" font-size="11">OpenRouter: cards, distilling</text>
+      <text x="840" y="116" font-size="11">Voyage: card and query vectors</text>
+      <text x="360" y="228">typed, one vector each,</text>
+      <text x="360" y="244">kept as evidence in SQLite</text>
+      <text x="600" y="228">groups facts by project,</text>
+      <text x="600" y="244">run on demand</text>
+      <text x="600" y="356">one conclusion per project,</text>
+      <text x="600" y="372">promoted or archived by use</text>
+      <text x="360" y="356">search, sessions, anchors,</text>
+      <text x="360" y="372">logs what it surfaces</text>
+      <text x="120" y="356">Claude Code and</text>
+      <text x="120" y="372">Claude Desktop</text>
+    </g>
+  </g>
+</svg>
