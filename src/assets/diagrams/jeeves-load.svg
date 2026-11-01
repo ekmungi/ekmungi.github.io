@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="jeeves-load-title jeeves-load-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="jeeves-load-title">Starting work on a project in Claude Code</title>
+  <desc id="jeeves-load-desc">A Claude Code window. The request &quot;let's work on Wound Imaging App&quot; runs the query skill, which runs the project brief command, shortened here, and receives the project brief. Claude then reports in a few lines. The project is scoping its first release. The open work is the plan P-002_WIA, &quot;First release plan&quot;, In Progress; the task T-004_WIA, &quot;Agree the accepted measurement error&quot;, Blocked; and the issue ISS-003_WIA, &quot;Ward lighting fails the size check&quot;, Open. The newest decision is DEC-005_WIA, &quot;Seek a 510(k) with a cleared predicate&quot;. The next step is to settle T-004_WIA and then write the performance specification. The project and its records are invented.</desc>
+
+  <!-- Window, the same frame as the site's other views. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#ffffff"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
+  <text x="18" y="24" font-size="11" fill="#626366">Claude Code</text>
+  <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
+
+  <!-- The request, the two tool calls and Claude's report (load.md, step 5: at most ten lines, with links). -->
+  <g font-family="ui-monospace, 'Cascadia Mono', Consolas, monospace" font-size="8.2">
+    <rect x="16" y="44" width="468" height="18" rx="3" fill="#efefed"/>
+    <text x="24" y="56" fill="#626366">&gt;</text>
+    <text x="36" y="56" fill="#2b2c2e">let's work on Wound Imaging App</text>
+    <circle cx="27" cy="79" r="2.3" fill="#4a8a5c"/>
+    <text x="36" y="82"><tspan fill="#2b2c2e" font-weight="600">Skill</tspan><tspan fill="#626366">(jeeves:query)</tspan></text>
+    <circle cx="27" cy="95" r="2.3" fill="#4a8a5c"/>
+    <text x="36" y="98"><tspan fill="#2b2c2e" font-weight="600">Bash</tspan><tspan fill="#626366">(vcache project brief --name &quot;Wound Imaging App&quot;)</tspan></text>
+    <text x="40" y="112" fill="#626366">└ # Project brief: Wound Imaging App</text>
+    <text x="48" y="124" fill="#626366">…</text>
+    <circle cx="27" cy="141" r="2.3" fill="#2b2c2e"/>
+    <text x="36" y="144" fill="#2b2c2e">Wound Imaging App is scoping its first release.</text>
+    <text x="36" y="162" fill="#2b2c2e" font-weight="600">Open work</text>
+    <text x="36" y="176" fill="#2b2c2e">- <tspan fill="#4a5f86">[[P-002_WIA]]</tspan> First release plan (In Progress)</text>
+    <text x="36" y="190" fill="#2b2c2e">- <tspan fill="#4a5f86">[[T-004_WIA]]</tspan> Agree the accepted measurement error (Blocked)</text>
+    <text x="36" y="204" fill="#2b2c2e">- <tspan fill="#4a5f86">[[ISS-003_WIA]]</tspan> Ward lighting fails the size check (Open)</text>
+    <text x="36" y="222" fill="#2b2c2e" font-weight="600">Newest decision</text>
+    <text x="36" y="236" fill="#2b2c2e">- <tspan fill="#4a5f86">[[DEC-005_WIA]]</tspan> Seek a 510(k) with a cleared predicate</text>
+    <text x="36" y="254" fill="#2b2c2e"><tspan font-weight="600">Next step:</tspan> settle <tspan fill="#4a5f86">[[T-004_WIA]]</tspan>, then write the</text>
+    <text x="36" y="268" fill="#2b2c2e">performance specification.</text>
+
+    <!-- The empty prompt, waiting for the next request. -->
+    <rect x="16" y="296" width="468" height="24" rx="5" fill="#ffffff" stroke="#dbdbd7"/>
+    <text x="26" y="311" fill="#626366">&gt;</text>
+  </g>
+</svg>

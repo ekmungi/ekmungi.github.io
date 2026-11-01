@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 454" style="min-width:960px" role="img" aria-labelledby="jeeves-title jeeves-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="jeeves-title">How Jeeves works</title>
+  <desc id="jeeves-desc">A stack of five layers. At the top, 01 Router: in my global Claude Code instructions, it points each kind of work to a skill or to the catalog of skills. Below it, 02 Ventures is split into four cells, each listing the skills that venture uses: Product strategy (product-manager, clinical-expert, regulatory-expert, market-researcher, technical-researcher), Research and learning (research-partner, technical-researcher, paper-implementation, research-architect, colab-research, storm-research, notebooklm-grounding), Writing and publishing (scientific-writing, document-building, presentation-building, executive-communication, excalidraw and mermaid) and My own tools (heavy-work, fable-mode, improve-self, and the project records). Below the ventures lie three layers that hold what the skills share: 03 Shared protocols (expert, project and deliverable protocols, shared methods, the AI medical devices pack), 04 Vault skills (ingest, manage, query, map, maintain, migrate-project, install-templates and the engine) and, highlighted, 05 Obsidian vault (linked records from research note to plan, a map note, PARA folders). An arrow on the left marks the direction a request takes, from the top down.</desc>
+  <defs>
+    <marker id="jeeves-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#8b8c8f"/>
+    </marker>
+  </defs>
+
+  <!-- Paper: the frame colour. -->
+  <rect width="960" height="454" fill="#f8f8f7"/>
+
+  <!-- Direction: a request enters at the router and works its way down to the vault. -->
+  <text x="56" y="38" font-size="11" font-weight="500" letter-spacing="0.12em" fill="#626366" text-anchor="middle">REQUEST</text>
+  <path d="M 56 48 V 421" fill="none" stroke="#8b8c8f" stroke-width="1.2" marker-end="url(#jeeves-arrow)"/>
+
+  <!-- The stack: one silhouette, hairline dividers, all paper except the focal vault layer. -->
+  <rect x="96" y="24" width="832" height="406" rx="6" fill="#ffffff" stroke="#c4c5c1"/>
+  <path d="M 96 370 H 928 V 424 Q 928 430 922 430 H 102 Q 96 430 96 424 Z" fill="#eef1f6"/>
+  <rect x="96.5" y="370.5" width="831" height="59" rx="5.5" fill="none" stroke="#4a5f86" stroke-width="1.4"/>
+  <line x1="96" y1="84.5" x2="928" y2="84.5" stroke="#dbdbd7"/>
+  <line x1="96" y1="250.5" x2="928" y2="250.5" stroke="#dbdbd7"/>
+  <line x1="96" y1="310.5" x2="928" y2="310.5" stroke="#dbdbd7"/>
+  <line x1="96" y1="370.5" x2="928" y2="370.5" stroke="#dbdbd7"/>
+
+  <!-- Each layer: its index, its name and, on the right, what it holds. -->
+  <text x="112" y="58.0" font-size="11" font-weight="500" letter-spacing="0.12em" fill="#626366">01</text>
+  <text x="160" y="59.0" font-size="15" font-weight="600" fill="#2b2c2e">Router</text>
+  <text x="912" y="58.0" font-size="12" fill="#626366" text-anchor="end">in my global Claude Code instructions, points each kind of work to a skill or the catalog</text>
+  <text x="112" y="114" font-size="11" font-weight="500" letter-spacing="0.12em" fill="#626366">02</text>
+  <text x="160" y="114" font-size="15" font-weight="600" fill="#2b2c2e">Ventures</text>
+  <text x="112" y="284.0" font-size="11" font-weight="500" letter-spacing="0.12em" fill="#626366">03</text>
+  <text x="160" y="285.0" font-size="15" font-weight="600" fill="#2b2c2e">Shared protocols</text>
+  <text x="912" y="284.0" font-size="12" fill="#626366" text-anchor="end">expert, project and deliverable protocols, shared methods, the AI medical devices pack</text>
+  <text x="112" y="344.0" font-size="11" font-weight="500" letter-spacing="0.12em" fill="#626366">04</text>
+  <text x="160" y="345.0" font-size="15" font-weight="600" fill="#2b2c2e">Vault skills</text>
+  <text x="912" y="344.0" font-size="12" fill="#626366" text-anchor="end">ingest, manage, query, map, maintain, migrate-project, install-templates and the engine</text>
+  <text x="112" y="404.0" font-size="11" font-weight="500" letter-spacing="0.12em" fill="#4a5f86">05</text>
+  <text x="160" y="405.0" font-size="15" font-weight="600" fill="#4a5f86">Obsidian vault</text>
+  <text x="912" y="404.0" font-size="12" fill="#626366" text-anchor="end">linked records from research note to plan, a map note, PARA folders</text>
+
+  <!-- The ventures layer: one cell per venture, with the skills it uses most. -->
+  <rect x="240" y="96" width="163" height="142" rx="6" fill="#f8f8f7" stroke="#dbdbd7"/>
+  <text x="252" y="118" font-size="12.5" font-weight="600" fill="#2b2c2e">Product strategy</text>
+  <text x="252" y="138" font-size="11.5" fill="#626366">product-manager</text>
+  <text x="252" y="153" font-size="11.5" fill="#626366">clinical-expert</text>
+  <text x="252" y="168" font-size="11.5" fill="#626366">regulatory-expert</text>
+  <text x="252" y="183" font-size="11.5" fill="#626366">market-researcher</text>
+  <text x="252" y="198" font-size="11.5" fill="#626366">technical-researcher</text>
+  <rect x="411" y="96" width="163" height="142" rx="6" fill="#f8f8f7" stroke="#dbdbd7"/>
+  <text x="423" y="118" font-size="12.5" font-weight="600" fill="#2b2c2e">Research and learning</text>
+  <text x="423" y="138" font-size="11.5" fill="#626366">research-partner</text>
+  <text x="423" y="153" font-size="11.5" fill="#626366">technical-researcher</text>
+  <text x="423" y="168" font-size="11.5" fill="#626366">paper-implementation</text>
+  <text x="423" y="183" font-size="11.5" fill="#626366">research-architect</text>
+  <text x="423" y="198" font-size="11.5" fill="#626366">colab-research</text>
+  <text x="423" y="213" font-size="11.5" fill="#626366">storm-research</text>
+  <text x="423" y="228" font-size="11.5" fill="#626366">notebooklm-grounding</text>
+  <rect x="582" y="96" width="163" height="142" rx="6" fill="#f8f8f7" stroke="#dbdbd7"/>
+  <text x="594" y="118" font-size="12.5" font-weight="600" fill="#2b2c2e">Writing and publishing</text>
+  <text x="594" y="138" font-size="11.5" fill="#626366">scientific-writing</text>
+  <text x="594" y="153" font-size="11.5" fill="#626366">document-building</text>
+  <text x="594" y="168" font-size="11.5" fill="#626366">presentation-building</text>
+  <text x="594" y="183" font-size="11.5" fill="#626366">executive-communication</text>
+  <text x="594" y="198" font-size="11.5" fill="#626366">excalidraw, mermaid</text>
+  <rect x="753" y="96" width="163" height="142" rx="6" fill="#f8f8f7" stroke="#dbdbd7"/>
+  <text x="765" y="118" font-size="12.5" font-weight="600" fill="#2b2c2e">My own tools</text>
+  <text x="765" y="138" font-size="11.5" fill="#626366">heavy-work</text>
+  <text x="765" y="153" font-size="11.5" fill="#626366">fable-mode</text>
+  <text x="765" y="168" font-size="11.5" fill="#626366">improve-self</text>
+  <text x="765" y="187" font-size="11.5" font-style="italic" fill="#626366">and the project records</text>
+</svg>

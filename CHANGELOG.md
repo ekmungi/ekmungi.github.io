@@ -2,6 +2,12 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.4.6] - 2026-11-01
+
+### Changed
+
+- The Jeeves page presents Jeeves as a strategic initiative: one Claude Code plugin whose skills serve four ventures, AI product strategy for medical devices, research and learning, writing and publishing, and building my own tools. It describes version 3.1.0 and has the problem, a section on why it is a strategic initiative, a "How it is built" section on skills and the router, the shared protocols and checks, and the vault, then what it does in each venture. It shows three views drawn from the plugin's code with an invented project: the review viewer's overview page, a document with a comment that Claude answered, and the start of work on a project in Claude Code. A layer diagram shows the four ventures over the shared protocols, vault skills and vault, and seven references cover the Claude Code documentation on plugins and skills, STORM, Karpathy's training recipe and LLM-wiki note, the PARA method and MarkItDown. The code stays private, so the page has no repository link. Three independent reviews against the code corrected six overstated claims, the drift of a rewrite that removed AI tells, and details of the drawings: the count of waiting comments, the memo icon, the reading view's top bar and the status of Claude's reply.
+
 ## [0.4.5] - 2026-10-30
 
 ### Added

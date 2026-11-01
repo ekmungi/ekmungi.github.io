@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" style="min-width:500px" role="img" aria-labelledby="jeeves-overview-title jeeves-overview-desc" font-family="'Fira Sans', system-ui, sans-serif">
+  <title id="jeeves-overview-title">The review viewer's overview page</title>
+  <desc id="jeeves-overview-desc">A browser shows _Overview.html for an invented work folder. Under the path &quot;01 PROJECTS / Wound Imaging App / resources / Review&quot;, the title reads &quot;Wound Imaging App – Product strategy&quot;, followed by the line &quot;3 items and 1 comment waiting. Built on 31 Oct 2026, 23:37.&quot; A Display button sits on the right. Three documents follow, a Briefing, a Memo and a Report. Each has an icon for its kind, its title, a one-line summary, the status Draft, the version V1, the date it was created and the date it was last edited. The Briefing also carries a yellow &quot;1 comment waiting&quot; label.</desc>
+
+  <!-- Browser window: the viewer is a page opened from the work folder. -->
+  <rect width="500" height="350" fill="#f8f8f7"/>
+  <rect x="6" y="6" width="488" height="338" rx="8" fill="#f1efec"/>
+  <path d="M 6 34 V 14 Q 6 6 14 6 H 486 Q 494 6 494 14 V 34 Z" fill="#efefed"/>
+  <g fill="none" stroke="#8b8c8f" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 24 20 H 16 M 19.5 16.5 L 16 20 L 19.5 23.5"/>
+    <path d="M 34 20 H 42 M 38.5 16.5 L 42 20 L 38.5 23.5"/>
+  </g>
+  <rect x="56" y="12" width="388" height="16" rx="8" fill="#ffffff"/>
+  <text x="68" y="23.5" font-size="8.5" fill="#626366">_Overview.html</text>
+  <line x1="6" y1="34.5" x2="494" y2="34.5" stroke="#dbdbd7"/>
+
+  <!-- Header: the folder's path, its title from the subject and context, the count line and the Display button. -->
+  <text x="64" y="56" font-size="7" fill="#5a6879">01 PROJECTS / Wound Imaging App / resources / Review</text>
+  <text x="64" y="78" font-size="15" font-weight="700" fill="#132030">Wound Imaging App – Product strategy</text>
+  <text x="64" y="92" font-size="7.5" fill="#5a6879">3 items and 1 comment waiting. Built on 31 Oct 2026, 23:37.</text>
+  <rect x="394" y="46" width="54" height="17" rx="5" fill="#ffffff" stroke="#e1ddd6"/>
+  <svg x="399" y="49.5" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#132030" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+  <text x="413" y="57.5" font-size="7.5" font-weight="500" fill="#132030">Display</text>
+
+  <!-- One entry for each document, newest first. A comment waiting on a document adds a yellow label. -->
+  <rect x="70" y="112" width="20" height="20" rx="5" fill="#fcefd8"/>
+  <svg x="73" y="115" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8c5200" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 15.5h5"/></svg>
+  <text x="100" y="120" font-size="8.5" font-weight="600" fill="#132030">Wound Imaging App – Product strategy – Briefing</text>
+  <text x="100" y="131" font-size="7.5" fill="#5a6879">Compares a De Novo request with a 510(k) for the wound-measurement feature.</text>
+  <rect x="100" y="136" width="21" height="10" rx="5" fill="#ece8e2"/>
+  <text x="110.5" y="143" font-size="6.5" font-weight="500" fill="#5a6879" text-anchor="middle">Draft</text>
+  <text x="127" y="143" font-size="6.5" fill="#5a6879">V1</text>
+  <svg x="140" y="136" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#5a6879" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3v4M15.5 3v4"/></svg>
+  <text x="150" y="143" font-size="6.5" fill="#5a6879">31 Oct 2026</text>
+  <svg x="192" y="136" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#5a6879" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l1.2-4.4 9.6-9.6a2 2 0 012.8 0l.4.4a2 2 0 010 2.8L9.4 17.8z"/><path d="M14 7l3 3"/></svg>
+  <text x="202" y="143" font-size="6.5" fill="#5a6879">31 Oct 2026, 23:34</text>
+  <rect x="266" y="136" width="58" height="10" rx="5" fill="#fbe7a1"/>
+  <text x="295" y="143" font-size="6" font-weight="500" fill="#3d2f00" text-anchor="middle">1 comment waiting</text>
+  <rect x="70" y="166" width="20" height="20" rx="5" fill="#fcefd8"/>
+  <svg x="73" y="169" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8c5200" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M9 9h6M9 12.5h6M9 16h3"/></svg>
+  <text x="100" y="174" font-size="8.5" font-weight="600" fill="#132030">Wound Imaging App – Product strategy – Memo</text>
+  <text x="100" y="185" font-size="7.5" fill="#5a6879">Orders the first three releases by evidence and pathway risk.</text>
+  <rect x="100" y="190" width="21" height="10" rx="5" fill="#ece8e2"/>
+  <text x="110.5" y="197" font-size="6.5" font-weight="500" fill="#5a6879" text-anchor="middle">Draft</text>
+  <text x="127" y="197" font-size="6.5" fill="#5a6879">V1</text>
+  <svg x="140" y="190" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#5a6879" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3v4M15.5 3v4"/></svg>
+  <text x="150" y="197" font-size="6.5" fill="#5a6879">31 Oct 2026</text>
+  <svg x="192" y="190" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#5a6879" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l1.2-4.4 9.6-9.6a2 2 0 012.8 0l.4.4a2 2 0 010 2.8L9.4 17.8z"/><path d="M14 7l3 3"/></svg>
+  <text x="202" y="197" font-size="6.5" fill="#5a6879">31 Oct 2026, 23:34</text>
+  <rect x="70" y="220" width="20" height="20" rx="5" fill="#fcefd8"/>
+  <svg x="73" y="223" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8c5200" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 15.5h5"/></svg>
+  <text x="100" y="228" font-size="8.5" font-weight="600" fill="#132030">Wound Imaging App – Product strategy – Report</text>
+  <text x="100" y="239" font-size="7.5" fill="#5a6879">Grades the published evidence for photo-based wound measurement.</text>
+  <rect x="100" y="244" width="21" height="10" rx="5" fill="#ece8e2"/>
+  <text x="110.5" y="251" font-size="6.5" font-weight="500" fill="#5a6879" text-anchor="middle">Draft</text>
+  <text x="127" y="251" font-size="6.5" fill="#5a6879">V1</text>
+  <svg x="140" y="244" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#5a6879" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3v4M15.5 3v4"/></svg>
+  <text x="150" y="251" font-size="6.5" fill="#5a6879">31 Oct 2026</text>
+  <svg x="192" y="244" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#5a6879" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l1.2-4.4 9.6-9.6a2 2 0 012.8 0l.4.4a2 2 0 010 2.8L9.4 17.8z"/><path d="M14 7l3 3"/></svg>
+  <text x="202" y="251" font-size="6.5" fill="#5a6879">31 Oct 2026, 23:34</text>
+</svg>
