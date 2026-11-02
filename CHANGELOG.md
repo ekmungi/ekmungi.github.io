@@ -2,6 +2,12 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.4.7] - 2026-11-02
+
+### Changed
+
+- The Spyglass page has plain wording: thesis-first openings, idioms such as "the fetch ladder" and "learns my taste", and chains of clauses joined by "so" are replaced by plain statements. Every fact, number, citation and reference is unchanged.
+
 ## [0.4.6] - 2026-11-01
 
 ### Changed
