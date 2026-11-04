@@ -2,6 +2,12 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.4.9] - 2026-11-04
+
+### Changed
+
+- The AI Meeting Notes page has plain wording: contrasts built on "rather than", long chained sentences and sentences that only announce the next one are replaced by plain statements in complete sentences. Every fact, number, citation and reference is unchanged.
+
 ## [0.4.8] - 2026-11-03
 
 ### Changed
