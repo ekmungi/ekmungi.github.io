@@ -2,6 +2,12 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.4.10] - 2026-11-05
+
+### Changed
+
+- The YouTube Transcribe page has plain wording: caption fragments, a thesis-first opening, chains of clauses joined by "so" and a citation joined by a semicolon are replaced by plain statements in complete sentences. Every fact, number, citation and reference is unchanged.
+
 ## [0.4.9] - 2026-11-04
 
 ### Changed
